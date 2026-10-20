@@ -357,6 +357,7 @@
   },
   "products": {
     "product": {
+      "thread_required_error": "Please select a thread color.",
       "add_to_cart": "Add to cart",
       "adding_to_cart": "Adding...",
       "added_to_cart": "Added to cart",

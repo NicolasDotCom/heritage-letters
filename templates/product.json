@@ -1,12 +1,4 @@
-/*
- * ------------------------------------------------------------
- * IMPORTANT: The contents of this file are auto-generated.
- *
- * This file may be updated by the Shopify admin theme editor
- * or related systems. Please exercise caution as any changes
- * made to this file may be overwritten.
- * ------------------------------------------------------------
- */{
+{
   "sections": {
     "product-information": {
       "type": "product-information",
@@ -192,11 +184,17 @@
                         "padding-inline-end": 0
                       },
                       "blocks": {}
+                    },
+                    "review": {
+                      "type": "review",
+                      "name": "Reseñas",
+                      "settings": {}
                     }
                   },
                   "block_order": [
                     "text_rwpyUz",
-                    "price_iBYhxh"
+                    "price_iBYhxh",
+                    "review"
                   ]
                 },
                 "variant_picker_VT89rh": {

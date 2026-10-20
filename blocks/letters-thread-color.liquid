@@ -1,0 +1,116 @@
+{%- liquid
+  assign block_settings = block.settings
+  assign product_id = closest.product.id
+  assign element_id = 'ThreadColor-product_id-block_id' | replace: 'product_id', product_id | replace: 'block_id', block.id
+  assign product_form_id = 'BuyButtons-ProductForm-section.id' | replace: 'section.id', section.id
+  assign colors_setting = block_settings.colors | default: ''
+  assign thread_colors = colors_setting | split: '|'
+
+  assign mask_url = 'funda-cuero-liso-negro-bordado-hilo-amarillo-pastel-mask.png' | asset_url
+  if block_settings.mask_image != blank
+    assign mask_url = block_settings.mask_image | image_url: width: 1200
+  endif
+-%}
+
+<letters-thread-color
+  class="letters-thread-color spacing-style"
+  style="{% render 'spacing-style', settings: block_settings %}"
+  data-letters-thread-color
+  data-letters-mask-url="{{ mask_url | escape }}"
+  data-letters-thread-error="{{ 'products.product.thread_required_error' | t | escape }}"
+  {{ block.shopify_attributes }}
+>
+  <p class="letters-thread-color__heading">{{ block_settings.heading | default: 'Color del hilo' | escape }}</p>
+  <ul class="letters-thread-color__list">
+    {%- for thread_color in thread_colors -%}
+      {%- assign color_name = thread_color | strip -%}
+      {%- if color_name != blank -%}
+        <li class="letters-thread-color__item">
+          <input
+            class="letters-thread-color__radio"
+            type="radio"
+            id="{{ element_id }}-{{ forloop.index0 }}"
+            name="properties[Color del Hilo]"
+            value="{{ color_name | escape }}"
+            form="{{ product_form_id }}"
+            data-letters-thread-radio
+            data-thread-color-name="{{ color_name | escape }}"
+            aria-label="{{ color_name | escape }}"
+          >
+          <label class="letters-thread-color__swatch" for="{{ element_id }}-{{ forloop.index0 }}" title="{{ color_name | escape }}">
+            <span class="letters-thread-color__dot" data-thread-color-name="{{ color_name | escape }}"></span>
+          </label>
+        </li>
+      {%- endif -%}
+    {%- endfor -%}
+  </ul>
+  {%- if block_settings.help_text != blank -%}
+    <p class="letters-thread-color__help">{{ block_settings.help_text | escape }}</p>
+  {%- endif -%}
+  <p class="letters-thread-color__error Alert Alert--error" role="alert" hidden ref="error"></p>
+</letters-thread-color>
+
+{%- render 'letters-fundas-styles' -%}
+
+{% schema %}
+{
+  "name": "Color del hilo (LETTERS)",
+  "tag": "letters-thread-color",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Título",
+      "default": "Color del hilo"
+    },
+    {
+      "type": "text",
+      "id": "help_text",
+      "label": "Texto de ayuda",
+      "default": "Selecciona el color del hilo para el bordado."
+    },
+    {
+      "type": "textarea",
+      "id": "colors",
+      "label": "Colores (separados por |)",
+      "info": "Se muestran como muestras circulares con el color real de cada hilo."
+    },
+    {
+      "type": "image_picker",
+      "id": "mask_image",
+      "label": "Máscara del bordado (opcional)",
+      "info": "Vacío usa la máscara universal de assets/ (cuero liso negro)."
+    },
+    {
+      "type": "header",
+      "content": "Espaciado"
+    },
+    {
+      "type": "range",
+      "id": "padding-block-start",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Relleno superior",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding-block-end",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Relleno inferior",
+      "default": 0
+    }
+  ],
+  "presets": [
+    {
+      "name": "Color del hilo (LETTERS)",
+      "category": "Producto"
+    }
+  ]
+}
+{% endschema %}

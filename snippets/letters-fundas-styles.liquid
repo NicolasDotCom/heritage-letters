@@ -1,0 +1,105 @@
+{%- doc -%}
+  Estilos del módulo LETTERS de personalización de fundas: muestras de hilo y overlay de bordado.
+
+  @example
+  {% render 'letters-fundas-styles' %}
+{%- enddoc -%}
+
+{% stylesheet %}
+  letters-thread-color {
+    display: block;
+  }
+
+  .letters-thread-color__heading {
+    margin: 0 0 8px;
+    font-size: var(--font-size--sm);
+  }
+
+  .letters-thread-color__list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .letters-thread-color__item {
+    margin: 0;
+  }
+
+  .letters-thread-color__radio {
+    position: absolute;
+    opacity: 0;
+    width: 1px;
+    height: 1px;
+    pointer-events: none;
+  }
+
+  .letters-thread-color__swatch {
+    display: inline-flex;
+    cursor: pointer;
+  }
+
+  .letters-thread-color__dot {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background-color: var(--color-foreground);
+    border: 2px solid transparent;
+    box-shadow: 0 0 0 1px rgb(var(--color-foreground-rgb) / 0.3);
+  }
+
+  .letters-thread-color__radio:checked + .letters-thread-color__swatch .letters-thread-color__dot {
+    border-color: var(--color-background);
+    box-shadow: 0 0 0 2px var(--color-foreground);
+  }
+
+  .letters-thread-color__radio:focus-visible + .letters-thread-color__swatch .letters-thread-color__dot {
+    outline: 2px solid var(--color-foreground);
+    outline-offset: 2px;
+  }
+
+  .letters-thread-color__help {
+    margin: 8px 0 0;
+    font-size: var(--font-size--xs);
+  }
+
+  .letters-thread-color__error {
+    margin: 8px 0 0;
+    color: #e5484d;
+    font-size: var(--font-size--xs);
+  }
+
+  .product-media {
+    position: relative;
+  }
+
+  .letters-thread-overlay {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 2;
+    background-color: var(--thread-color, #efb65d);
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-mode: alpha;
+    mask-mode: alpha;
+    -webkit-mask-size: 100% 100%;
+    mask-size: 100% 100%;
+    -webkit-mask-position: center;
+    mask-position: center;
+    opacity: 0.9;
+    mix-blend-mode: normal;
+  }
+
+  .letters-thread-overlay[hidden] {
+    display: none;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .letters-thread-overlay {
+      transition: opacity 0.2s ease;
+    }
+  }
+{% endstylesheet %}
