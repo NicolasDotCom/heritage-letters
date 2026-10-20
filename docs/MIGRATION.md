@@ -18,6 +18,9 @@ Este tema es **Heritage 4.3.0 (Shopify)** con las customizaciones de la marca **
 | Reseñas | Bloque `review` nativo, parcheado para aceptar el metafield `reviews.rating` en ambos formatos (Rating de Shopify `value.rating` o número plano `value`) | `blocks/review.liquid`, bloques `review` en los templates de producto |
 | **Módulo fundas** (vista dinámica + personalización) | Ver §2 | `blocks/letters-thread-color.liquid`, `assets/letters-fundas.js`, `snippets/letters-fundas-styles.liquid`, `assets/thread-colors.js`, `assets/funda-*-mask.png` (14) |
 | Locales | Claves nuevas en `es.json` + `en.default.json` (idiomas activos) + fallback inglés en los 32 idiomas no activos de Heritage | `locales/*.json` |
+| **Barra sticky de compra** | Chips de variante en una sola línea (el título de variante de Shopify se partía en 3 líneas y aplastaba el título del producto), precio limpio en móvil (sin tachado ni badge de descuento) y barra compacta (miniatura/botón 44px) | `sections/product-information.liquid` (parche Heritage) |
+| **Botón WhatsApp vs barra sticky** | El FAB se desplaza sobre la barra de compra en móvil (clase `is-raised` + var `--wa-sticky-offset`, sincronizado con `data-stuck` vía Mutation/ResizeObserver); `z-index` en el sistema de capas del tema para que los drawers lo tapen | `snippets/whatsapp-float.liquid` |
+| **Copy de PDP en español** | Se sustituyó el copy placeholder de Heritage (Materials/Care/Details, badges "Made with care…", "Styled With", "You may also like") en las 3 plantillas de producto | `templates/product{,.funda,.iniciales}.json` |
 
 ### Decisiones de diseño respecto al tema origen
 1. **Fotos por variante (sin sync por nombre de archivo)**: Heritage reordena la galería por variante, así que la sincronía formulario↔galería del fork de Prestige se sustituye por **asociar cada foto a su variante en el admin**. `templates/product.funda.json` lleva `hide_variants: true` para que solo se muestren las fotos de la variante seleccionada.
@@ -98,6 +101,31 @@ Checklist visual en preview (desktop + móvil):
   1. `config/settings_data.json` (paleta + fuentes) — o rehacer desde el editor.
   2. `snippets/whatsapp-float.liquid` (nuevo, no se pisa) + su render en `layout/theme.liquid` (1 línea).
   3. Bloques nuevos (`letters-thread-color`, `letters-whatsapp-cta`) + `assets/letters-fundas.js`, `assets/thread-colors.js`, `snippets/letters-fundas-styles.liquid` (nuevos).
-  4. Parches sobre archivos de Heritage (los únicos que pueden entrar en conflicto): `blocks/_product-card-gallery.liquid` (badges `__label:`), `blocks/review.liquid` (fallback de metafield), `snippets/product-badges-styles.liquid` (flex en badges), `snippets/theme-styles-variables.liquid` (esquema `badge-label`), `snippets/scripts.liquid` (carga de `letters-fundas.js`), `templates/product.json` (bloques review/CTA), `sections/footer-group.json` (redes), `locales/*` (2 claves).
+  4. Parches sobre archivos de Heritage (los únicos que pueden entrar en conflicto): `blocks/_product-card-gallery.liquid` (badges `__label:`), `blocks/review.liquid` (fallback de metafield), `blocks/product-custom-property.liquid` (range `max_length` con mínimo 3), `snippets/product-badges-styles.liquid` (flex en badges), `snippets/theme-styles-variables.liquid` (esquema `badge-label`), `snippets/scripts.liquid` (carga de `letters-fundas.js`), `sections/product-information.liquid` (chips de variante + estilos de la barra sticky + precio compacto en móvil), `templates/product.json` (bloques review/CTA), `sections/footer-group.json` (redes), `locales/*` (2 claves).
   5. Templates propios (`product.funda`, `product.iniciales`, `page.*`) y assets de máscaras.
 - No renombrar `properties[...]` ni los `data-attributes` de `letters-thread-color`/`letters-fundas.js`.
+
+---
+
+## 6. Pulido visual de la PDP (post-migración)
+
+**Barra sticky de compra** (`sections/product-information.liquid`):
+- Los chips de variante se generan en Liquid (`current_variant.title | split: ' / '`) → el morph que hace el JS de Heritage (`sticky-add-to-cart.js`, `morph(..., { childrenOnly: true })`) los actualiza solo al cambiar de variante. Único caso degradado: cuando la variante no está disponible el JS escribe texto plano en `.sticky-add-to-cart__variant` (sin chips).
+- Móvil: barra compacta (miniatura y botón 44px) y solo precio actual (se ocultan tachado y badge de descuento dentro de la barra, `.sticky-add-to-cart__price .compare-at-price / .price__discount-badge`).
+
+**Botón flotante WhatsApp** (`snippets/whatsapp-float.liquid`):
+- Se desplaza sobre la barra cuando `data-stuck="true"` (clase `is-raised` + `--wa-sticky-offset` medido con `ResizeObserver`, sincronizado con `MutationObserver`). Nunca tapa el "Agregar al carrito".
+- En pantallas ≥1000px la barra es un pill centrado de 600px y el botón conserva su posición (sin saltos).
+- `z-index: var(--layer-sticky)` → los drawers del tema (carrito/búsqueda) sí lo tapan.
+
+**Campo de iniciales** (`blocks/product-custom-property.liquid` + `templates/product.{funda,iniciales}.json`):
+- El contador "X de Y caracteres utilizados" se genera desde el setting `max_length` del bloque, cuyo range tenía `min: 25` (Heritage) mientras `letters-fundas.js` endurece el input a 3 letras → se veía "0 de 25".
+- Fix: range del schema en `min: 3, max: 250, step: 13, default: 94` + `max_length: 3` en el bloque `Iniciales personalizadas` de las plantillas `funda`/`iniciales`. El campo de "Datos del dispositivo" conserva 250.
+- Restricciones de Shopify para settings `range` (aprendidas al validar el schema): máximo **101 pasos**, el `step` debe **dividir `max - min` de forma equitativa** y el `default` debe caer en la **rejilla** (`min + k*step`). Con `min: 3` y `max: 250` la diferencia es 247 (= 13 × 19), así que los únicos pasos válidos son 13, 19 o 247 (de ahí `step: 13` y `default: 94`).
+- Resultado: contador correcto desde el primer render ("0 de 3 caracteres utilizados") y `maxlength="3"` nativo (funciona sin JS); `letters-fundas.js` sigue aplicando mayúsculas automáticas y el pattern de 3 letras.
+
+**Copy en español**: las 3 plantillas de producto (`product`, `product.funda`, `product.iniciales`) sustituyen el copy placeholder de Heritage (Materiales / Cuidados / Detalles, badges "Hecho a mano…", "Combínalo con", "También te puede gustar"). Es copy provisional: se ajusta desde el editor y queda versionado en el repo.
+
+**Pendientes fuera del tema**:
+- Formato de moneda COP con decimales (`$407.000,00 COP`) → Configuración → Moneda de la tienda.
+- La home (`templates/index.json`) y `templates/404.json` aún tienen copy placeholder de Heritage en inglés.

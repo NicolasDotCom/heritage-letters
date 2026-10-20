@@ -396,7 +396,7 @@
                         "text_QfbPLQ": {
                           "type": "text",
                           "settings": {
-                            "text": "<p>Made with care</p>",
+                            "text": "<p>Hecho a mano</p>",
                             "width": "100%",
                             "max_width": "none",
                             "alignment": "center",
@@ -489,7 +489,7 @@
                         "text_b3t8my": {
                           "type": "text",
                           "settings": {
-                            "text": "<p>Heirloom quality</p>",
+                            "text": "<p>Calidad que perdura</p>",
                             "width": "100%",
                             "max_width": "none",
                             "alignment": "center",
@@ -582,7 +582,7 @@
                         "text_qn3jAU": {
                           "type": "text",
                           "settings": {
-                            "text": "<p>Premium materials</p>",
+                            "text": "<p>Materiales premium</p>",
                             "width": "100%",
                             "max_width": "none",
                             "alignment": "center",
@@ -675,7 +675,7 @@
                         "text_RGzFRc": {
                           "type": "text",
                           "settings": {
-                            "text": "<p>Classic styling</p>",
+                            "text": "<p>Estilo clásico</p>",
                             "width": "100%",
                             "max_width": "none",
                             "alignment": "center",
@@ -737,7 +737,7 @@
                     "text_wdNxWE": {
                       "type": "text",
                       "settings": {
-                        "text": "<h2>Styled With</h2>",
+                        "text": "<h2>Combínalo con</h2>",
                         "width": "100%",
                         "max_width": "normal",
                         "alignment": "left",
@@ -898,7 +898,7 @@
                     "property_description": "Ingresa 3 letras para bordado o repujado.",
                     "property_key": "Iniciales personalizadas",
                     "input_type": "text",
-                    "max_length": 25,
+                    "max_length": 3,
                     "required": false,
                     "placeholder": "Ej: ABC"
                   }
@@ -1073,7 +1073,7 @@
                       "type": "text",
                       "name": "t:names.heading",
                       "settings": {
-                        "text": "<h6>Materials</h6>",
+                        "text": "<h6>Materiales</h6>",
                         "width": "100%",
                         "max_width": "narrow",
                         "alignment": "left",
@@ -1143,7 +1143,7 @@
                       "type": "text",
                       "name": "t:names.text",
                       "settings": {
-                        "text": "<p>Sustainable, natural textiles can be enjoyed for generations to come.</p>",
+                        "text": "<p>Cuero vacuno de grano completo (Full Grain) que desarrolla una pátina única con el tiempo. Interior en gamuza que protege tu dispositivo de rayones.</p>",
                         "width": "100%",
                         "max_width": "normal",
                         "alignment": "left",
@@ -1271,7 +1271,7 @@
                       "type": "text",
                       "name": "t:names.heading",
                       "settings": {
-                        "text": "<h6>Care</h6>",
+                        "text": "<h6>Cuidados</h6>",
                         "width": "100%",
                         "max_width": "narrow",
                         "alignment": "left",
@@ -1341,7 +1341,7 @@
                       "type": "text",
                       "name": "t:names.text",
                       "settings": {
-                        "text": "<p>Wash only when necessary using cold water and a gentle detergent. </p>",
+                        "text": "<p>Limpia con un paño seco y evita la exposición prolongada al agua. El cuero real mejora con el uso: su pátina es parte de su historia.</p>",
                         "width": "100%",
                         "max_width": "normal",
                         "alignment": "left",
@@ -1469,7 +1469,7 @@
                       "type": "text",
                       "name": "t:names.heading",
                       "settings": {
-                        "text": "<h6>Details</h6>",
+                        "text": "<h6>Detalles</h6>",
                         "width": "100%",
                         "max_width": "narrow",
                         "alignment": "left",
@@ -1539,7 +1539,7 @@
                       "type": "text",
                       "name": "t:names.text",
                       "settings": {
-                        "text": "<p>Hand-picked accents give this piece an understated unique look. </p>",
+                        "text": "<p>Hecho a mano en Colombia por maestros artesanos. Cada pieza es única y puede presentar ligeras variaciones naturales en el cuero.</p>",
                         "width": "100%",
                         "max_width": "normal",
                         "alignment": "left",
@@ -1602,7 +1602,7 @@
           "type": "text",
           "name": "t:names.header",
           "settings": {
-            "text": "<h3>You may also like</h3>",
+            "text": "<h3>También te puede gustar</h3>",
             "width": "fit-content",
             "max_width": "normal",
             "alignment": "left",

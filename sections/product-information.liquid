@@ -109,7 +109,20 @@
             {% if current_variant != blank %}
               {% assign variant_title = current_variant.title | escape %}
             {% endif %}
-            {{ variant_title }}
+            {%- comment -%}
+              Opciones de la variante como chips individuales en una sola línea
+              (el título de variante de Shopify viene unido con " / " y partía la
+              barra en varias líneas, aplastando el título del producto).
+            {%- endcomment -%}
+            {%- assign variant_parts = variant_title | split: ' / ' -%}
+            <span class="sticky-add-to-cart__variant-chips">
+              {%- for variant_part in variant_parts -%}
+                {%- assign variant_part_value = variant_part | strip -%}
+                {%- if variant_part_value != blank -%}
+                  <span class="sticky-add-to-cart__chip">{{ variant_part_value }}</span>
+                {%- endif -%}
+              {%- endfor -%}
+            </span>
           {% endunless %}
         </div>
       </div>
@@ -280,10 +293,37 @@
     color: rgb(var(--color-foreground-rgb) / var(--opacity-subdued-text));
     font-size: var(--font-paragraph-small--size);
     margin-top: var(--margin-3xs);
+    /* Nunca partir la barra en varias líneas: se trunca en una sola. */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    min-width: 0;
+  }
+
+  .sticky-add-to-cart__variant-chips {
+    display: flex;
+    align-items: center;
+    gap: var(--gap-2xs);
+    min-width: 0;
+    overflow: hidden;
+  }
+
+  .sticky-add-to-cart__chip {
+    flex: 0 1 auto;
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    padding: var(--padding-3xs) var(--padding-2xs);
+    border-radius: calc(var(--style-border-radius-buttons-primary) + var(--padding-2xs));
+    background: rgb(var(--color-foreground-rgb) / 0.08);
+    color: rgb(var(--color-foreground-rgb) / var(--opacity-subdued-text));
+    line-height: 1.35;
   }
 
   .sticky-add-to-cart__price {
     font-weight: var(--font-weight-semibold);
+    white-space: nowrap;
   }
 
   .sticky-add-to-cart__button {
@@ -320,16 +360,26 @@
       font-size: var(--font-paragraph--size);
     }
 
+    /* Barra compacta en móvil: miniatura y botón más pequeños. */
+    .sticky-add-to-cart__image {
+      height: 44px;
+    }
+
     .sticky-add-to-cart__button {
-      padding: var(--padding-lg);
+      height: 44px;
+      width: 44px;
+      padding: 12px;
     }
 
     .sticky-add-to-cart__price {
       font-size: var(--font-paragraph-small--size);
     }
 
-    .sticky-add-to-cart__button {
-      width: var(--height-buy-buttons);
+    /* En móvil solo el precio actual: el tachado y el badge de descuento
+       amontonaban la barra junto al botón de compra. */
+    .sticky-add-to-cart__price .compare-at-price,
+    .sticky-add-to-cart__price .price__discount-badge {
+      display: none;
     }
 
     sticky-add-to-cart:not([data-variant-available='true']) .add-to-cart-text__content {

@@ -17,22 +17,29 @@
 <style>
   .wa-float {
     position: fixed;
-    bottom: 28px;
-    right: 28px;
-    z-index: 9999;
+    /* En móvil la barra de compra sticky ocupa el borde inferior: el botón sube
+       sobre ella (clase .is-raised) para nunca tapar el CTA de "Agregar al carrito". */
+    bottom: calc(16px + var(--safe-area-inset-bottom, 0px));
+    right: 16px;
+    /* Mismo nivel del sistema de capas del tema: los drawers (cart/search) lo tapan. */
+    z-index: var(--layer-sticky, 8);
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 62px;
-    height: 62px;
+    width: 52px;
+    height: 52px;
     border-radius: 50%;
     text-decoration: none;
     box-shadow: 0 4px 18px rgba(0, 0, 0, 0.35);
   }
 
+  .wa-float.is-raised {
+    bottom: calc(var(--wa-sticky-offset, 76px) + 12px);
+  }
+
   .wa-float__icon {
-    width: 62px;
-    height: 62px;
+    width: 100%;
+    height: 100%;
     display: block;
     border-radius: 50%;
   }
@@ -57,10 +64,27 @@
     box-shadow: 0 6px 24px rgba(0, 0, 0, 0.5);
   }
 
+  @media screen and (min-width: 750px) {
+    .wa-float {
+      bottom: 28px;
+      right: 28px;
+      width: 62px;
+      height: 62px;
+    }
+  }
+
+  /* En pantallas anchas la barra sticky es un pill centrado (600px): no hay
+     solapamiento, así que el botón conserva su posición. */
+  @media screen and (min-width: 1000px) {
+    .wa-float.is-raised {
+      bottom: 28px;
+    }
+  }
+
   @media (prefers-reduced-motion: no-preference) {
     .wa-float,
     .wa-float__icon {
-      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      transition: bottom 0.3s var(--ease-out-quad, ease), transform 0.25s ease, box-shadow 0.25s ease;
     }
 
     .wa-float__pulse {
@@ -82,3 +106,76 @@
     }
   }
 </style>
+
+<script>
+  (function () {
+    var fab = document.querySelector('.wa-float');
+    if (!fab) return;
+
+    var root = document.documentElement;
+    var bar = null;
+    var resizeObserver = null;
+    var stuckObserver = null;
+    var scanQueued = false;
+
+    function sync() {
+      var visible = !!bar && bar.offsetHeight > 0;
+      var raised = visible && bar.getAttribute('data-stuck') === 'true';
+      fab.classList.toggle('is-raised', raised);
+      if (raised) {
+        root.style.setProperty('--wa-sticky-offset', bar.offsetHeight + 'px');
+      } else {
+        root.style.removeProperty('--wa-sticky-offset');
+      }
+    }
+
+    function bind(el) {
+      bar = el;
+      if (resizeObserver) resizeObserver.disconnect();
+      if (stuckObserver) stuckObserver.disconnect();
+      resizeObserver = new ResizeObserver(sync);
+      resizeObserver.observe(el);
+      stuckObserver = new MutationObserver(sync);
+      stuckObserver.observe(el, { attributes: true, attributeFilter: ['data-stuck'] });
+      sync();
+    }
+
+    function unbind() {
+      bar = null;
+      if (resizeObserver) resizeObserver.disconnect();
+      if (stuckObserver) stuckObserver.disconnect();
+      resizeObserver = null;
+      stuckObserver = null;
+      sync();
+    }
+
+    function scan() {
+      scanQueued = false;
+      if (bar && document.contains(bar)) return;
+      var el = document.querySelector('.sticky-add-to-cart__bar');
+      if (el && el !== bar) {
+        bind(el);
+        return;
+      }
+      if (!el && bar) unbind();
+    }
+
+    function scheduleScan() {
+      if (scanQueued) return;
+      scanQueued = true;
+      requestAnimationFrame(scan);
+    }
+
+    scan();
+    if (!bar) {
+      document.addEventListener('DOMContentLoaded', scheduleScan, { once: true });
+    }
+    /* El tema reemplaza el contenido de la página con morphing (navegación y
+       recargas de sección del editor): re-vinculamos solo si la barra cambió. */
+    new MutationObserver(scheduleScan).observe(document.documentElement, {
+      childList: true,
+      subtree: true
+    });
+    document.addEventListener('shopify:section:load', scheduleScan);
+  })();
+</script>
