@@ -124,8 +124,10 @@ Checklist visual en preview (desktop + móvil):
 - Restricciones de Shopify para settings `range` (aprendidas al validar el schema): máximo **101 pasos**, el `step` debe **dividir `max - min` de forma equitativa** y el `default` debe caer en la **rejilla** (`min + k*step`). Con `min: 3` y `max: 250` la diferencia es 247 (= 13 × 19), así que los únicos pasos válidos son 13, 19 o 247 (de ahí `step: 13` y `default: 94`).
 - Resultado: contador correcto desde el primer render ("0 de 3 caracteres utilizados") y `maxlength="3"` nativo (funciona sin JS); `letters-fundas.js` sigue aplicando mayúsculas automáticas y el pattern de 3 letras.
 
-**Copy en español**: las 3 plantillas de producto (`product`, `product.funda`, `product.iniciales`) sustituyen el copy placeholder de Heritage (Materiales / Cuidados / Detalles, badges "Hecho a mano…", "Combínalo con", "También te puede gustar"). Es copy provisional: se ajusta desde el editor y queda versionado en el repo.
+**Footer en español neutro** (`sections/footer-group.json`): "About us" → "Nosotros", "Shop" → "Tienda", "Support" → "Ayuda", "Our story" → "Nuestra historia", la descripción del bloque Nosotros lleva el manifiesto de marca ("LETTERS nace como una resistencia silenciosa ante el ruido…") y `show_powered_by: false` elimina el "Tecnología de Shopify" del copyright.
+
+**Copy en español**: las 3 plantillas de producto (`product`, `product.funda`, `product.iniciales`) sustituyen el copy placeholder de Heritage (Materiales / Cuidados / Detalles, badges "Hecho a mano…", "Combínalo con", "También te puede gustar"). La home (`templates/index.json`) lleva el titular del hero **"Tu historia, escrita en cuero"** + subtítulo + CTA **"Personaliza el tuyo"** (→ `/products/funda-cuero-genuino`), y los textos de secciones traducidos ("Destacado", "Nuestro producto insignia", "Nuestros más vendidos", "Nuevo lanzamiento"). Es copy provisional: se ajusta desde el editor y queda versionado en el repo.
 
 **Pendientes fuera del tema**:
 - Formato de moneda COP con decimales (`$407.000,00 COP`) → Configuración → Moneda de la tienda.
-- La home (`templates/index.json`) y `templates/404.json` aún tienen copy placeholder de Heritage en inglés.
+- `templates/404.json` aún tiene 1 línea de copy placeholder de Heritage en inglés.

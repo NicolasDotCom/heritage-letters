@@ -15,7 +15,7 @@
           "type": "text",
           "name": "t:names.heading",
           "settings": {
-            "text": "<h2>High-quality textiles, transformed <br/>into heirloom-quality garments.</h2>",
+            "text": "<h2>Tu historia,<br/>escrita en cuero.</h2>",
             "width": "fit-content",
             "max_width": "narrow",
             "alignment": "left",
@@ -35,10 +35,52 @@
             "padding-inline-end": 0
           },
           "blocks": {}
+        },
+        "text_hero_subtitle": {
+          "type": "text",
+          "name": "Subtítulo",
+          "settings": {
+            "text": "<p>Cuero genuino, hecho a mano en Colombia y personalizado con tus iniciales. Diseñado para envejecer contigo.</p>",
+            "width": "fit-content",
+            "max_width": "narrow",
+            "alignment": "left",
+            "type_preset": "paragraph",
+            "font": "var(--font-body--family)",
+            "font_size": "1.125rem",
+            "line_height": "normal",
+            "letter_spacing": "normal",
+            "case": "none",
+            "wrap": "pretty",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 16,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        },
+        "button_hero_cta": {
+          "type": "button",
+          "name": "Botón CTA",
+          "settings": {
+            "label": "Personaliza el tuyo",
+            "link": "/products/funda-cuero-genuino",
+            "open_in_new_tab": false,
+            "style_class": "button",
+            "width": "fit-content",
+            "custom_width": 100,
+            "width_mobile": "fit-content",
+            "custom_width_mobile": 100
+          },
+          "blocks": {}
         }
       },
       "block_order": [
-        "text_kfVmdT"
+        "text_kfVmdT",
+        "text_hero_subtitle",
+        "button_hero_cta"
       ],
       "name": "t:names.heading",
       "settings": {
@@ -181,7 +223,7 @@
               "type": "text",
               "name": "t:names.text",
               "settings": {
-                "text": "<p>Featured</p>",
+                "text": "<p>Destacado</p>",
                 "width": "100%",
                 "max_width": "normal",
                 "alignment": "left",
@@ -241,7 +283,7 @@
                   "type": "text",
                   "name": "t:names.heading",
                   "settings": {
-                    "text": "<h2>Our signature product</h2>",
+                    "text": "<h2>Nuestro producto insignia</h2>",
                     "width": "fit-content",
                     "max_width": "normal",
                     "alignment": "left",
@@ -264,7 +306,7 @@
                 "text_WpXhQM": {
                   "type": "text",
                   "settings": {
-                    "text": "<p>Made with care and unconditionally loved by our customers, this signature bestseller exceeds all expectations.</p>",
+                    "text": "<p>Hecho con cuidado y amado por nuestros clientes, este bestseller supera todas las expectativas.</p>",
                     "width": "100%",
                     "max_width": "normal",
                     "alignment": "left",
@@ -425,7 +467,7 @@
               "type": "_product-list-text",
               "name": "t:names.collection_title",
               "settings": {
-                "text": "<h3>Our bestsellers</h3>",
+                "text": "<h3>Nuestros más vendidos</h3>",
                 "width": "fit-content",
                 "max_width": "normal",
                 "alignment": "left",
@@ -656,7 +698,7 @@
               "type": "text",
               "name": "t:names.text",
               "settings": {
-                "text": "<p>Featured </p>",
+                "text": "<p>Destacado</p>",
                 "width": "100%",
                 "max_width": "normal",
                 "alignment": "left",
@@ -716,7 +758,7 @@
                   "type": "text",
                   "name": "t:names.heading",
                   "settings": {
-                    "text": "<p>New arrival </p>",
+                    "text": "<p>Nuevo lanzamiento</p>",
                     "width": "fit-content",
                     "max_width": "normal",
                     "alignment": "left",
@@ -739,7 +781,7 @@
                 "text_DNm6Az": {
                   "type": "text",
                   "settings": {
-                    "text": "<p>Introducing our latest product, made especially for the season. Shop now before it's gone!</p>",
+                    "text": "<p>Te presentamos nuestro último lanzamiento, creado especialmente para la temporada. ¡Compra ahora antes de que se agote!</p>",
                     "width": "100%",
                     "max_width": "normal",
                     "alignment": "left",
