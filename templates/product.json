@@ -867,11 +867,20 @@
                   "block_order": [
                     "text_wdNxWE"
                   ]
+                },
+                "letters_whatsapp_cta": {
+                  "type": "letters-whatsapp-cta",
+                  "name": "Ayuda por WhatsApp",
+                  "settings": {
+                    "text": "Para elegir otro color por favor escríbenos al WhatsApp.",
+                    "button_label": "Escríbenos"
+                  }
                 }
               },
               "block_order": [
                 "group_nMm3w6",
                 "variant_picker_VT89rh",
+                "letters_whatsapp_cta",
                 "buy_buttons_64taHw",
                 "text_wnQCmf",
                 "group_JK8NUb",

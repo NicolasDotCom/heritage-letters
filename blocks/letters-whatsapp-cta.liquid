@@ -1,0 +1,87 @@
+{%- liquid
+  assign block_settings = block.settings
+  assign phone = block_settings.phone | default: '573007521018'
+  assign message = block_settings.message | default: 'Hola Letters, ¿tienen disponibilidad del producto: ___ en color: ___?'
+-%}
+
+<div class="letters-whatsapp-cta spacing-style" style="{% render 'spacing-style', settings: block_settings %}" {{ block.shopify_attributes }}>
+  {%- if block_settings.text != blank -%}
+    <p class="letters-whatsapp-cta__text">{{ block_settings.text | escape }}</p>
+  {%- endif -%}
+  <a
+    class="button letters-whatsapp-cta__button"
+    href="https://api.whatsapp.com/send/?phone={{ phone }}&text={{ message | url_param_escape }}"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    {{- block_settings.button_label | default: 'Escríbenos' | escape -}}
+  </a>
+</div>
+
+{% stylesheet %}
+  .letters-whatsapp-cta__text {
+    margin: 0 0 8px;
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Ayuda por WhatsApp (LETTERS)",
+  "settings": [
+    {
+      "type": "text",
+      "id": "text",
+      "label": "Texto",
+      "default": "Para elegir otro color por favor escríbenos al WhatsApp."
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Texto del botón",
+      "default": "Escríbenos"
+    },
+    {
+      "type": "text",
+      "id": "phone",
+      "label": "Número de WhatsApp",
+      "default": "573007521018"
+    },
+    {
+      "type": "text",
+      "id": "message",
+      "label": "Mensaje pre-rellenado",
+      "default": "Hola Letters, ¿tienen disponibilidad del producto: ___ en color: ___?"
+    },
+    {
+      "type": "header",
+      "content": "Espaciado"
+    },
+    {
+      "type": "range",
+      "id": "padding-block-start",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Relleno superior",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding-block-end",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Relleno inferior",
+      "default": 0
+    }
+  ],
+  "presets": [
+    {
+      "name": "Ayuda por WhatsApp (LETTERS)",
+      "category": "Producto"
+    }
+  ]
+}
+{% endschema %}
