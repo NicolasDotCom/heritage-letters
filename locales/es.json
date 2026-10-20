@@ -20,6 +20,7 @@
     "slider_label": "Carrusel"
   },
   "accessibility": {
+    "whatsapp_contact": "Contactar por WhatsApp",
     "play_model": "Reproducir el modelo 3D",
     "play_video": "Reproducir el video",
     "unit_price": "Precio unitario",
