@@ -15,6 +15,10 @@
     font-size: var(--font-size--sm);
   }
 
+  .letters-thread-color__selected {
+    font-weight: 600;
+  }
+
   .letters-thread-color__list {
     display: flex;
     flex-wrap: wrap;
@@ -42,17 +46,36 @@
   }
 
   .letters-thread-color__dot {
-    width: 32px;
-    height: 32px;
+    width: 34px;
+    height: 34px;
     border-radius: 50%;
-    background-color: var(--color-foreground);
+    background-color: #ffffff;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     border: 2px solid transparent;
     box-shadow: 0 0 0 1px rgb(var(--color-foreground-rgb) / 0.3);
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+  }
+
+  .letters-thread-color__swatch:hover .letters-thread-color__dot {
+    transform: scale(1.1);
   }
 
   .letters-thread-color__radio:checked + .letters-thread-color__swatch .letters-thread-color__dot {
     border-color: var(--color-background);
     box-shadow: 0 0 0 2px var(--color-foreground);
+    transform: scale(1.1);
+  }
+
+  @media screen and (min-width: 750px) {
+    .product-information__media {
+      position: sticky !important;
+      top: calc(var(--header-height, 0px) + 20px) !important;
+      align-self: start !important;
+      height: fit-content !important;
+      z-index: 1;
+    }
   }
 
   .letters-thread-color__radio:focus-visible + .letters-thread-color__swatch .letters-thread-color__dot {

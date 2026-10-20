@@ -3,7 +3,11 @@
   assign product_id = closest.product.id
   assign element_id = 'ThreadColor-product_id-block_id' | replace: 'product_id', product_id | replace: 'block_id', block.id
   assign product_form_id = 'BuyButtons-ProductForm-section.id' | replace: 'section.id', section.id
-  assign colors_setting = block_settings.colors | default: ''
+  assign default_thread_colors = 'Amarillo Pastel|Amarillo Limón|Amarillo Oro|Naranja Claro|Naranja Dorado|Azul Marino|Azul Rey|Azul Eléctrico|Azul Turquesa|Azul Celeste|Azul Bebé|Gris Grafito|Gris Acero|Gris Medio|Gris Claro|Burdeos|Rojo|Rojo Intenso|Naranja|Naranja Brillante|Marrón Oscuro|Marrón Medio|Marrón Castaño|Marrón Claro|Beige / Tostado|Marrón Moca|Marrón Camel|Verde Oliva Oscuro|Verde Esmeralda|Verde Bandera|Verde Lima|Verde Oliva Claro'
+  assign colors_setting = block_settings.colors
+  if colors_setting == blank
+    assign colors_setting = default_thread_colors
+  endif
   assign thread_colors = colors_setting | split: '|'
 
   assign mask_url = 'funda-cuero-liso-negro-bordado-hilo-amarillo-pastel-mask.png' | asset_url
@@ -20,11 +24,14 @@
   data-letters-thread-error="{{ 'products.product.thread_required_error' | t | escape }}"
   {{ block.shopify_attributes }}
 >
-  <p class="letters-thread-color__heading">{{ block_settings.heading | default: 'Color del hilo' | escape }}</p>
+  <p class="letters-thread-color__heading">{{ block_settings.heading | default: 'Color del hilo' | escape }}: <span class="letters-thread-color__selected" data-letters-thread-selected></span></p>
   <ul class="letters-thread-color__list">
     {%- for thread_color in thread_colors -%}
       {%- assign color_name = thread_color | strip -%}
       {%- if color_name != blank -%}
+        {%- assign handle_part = color_name | handle | replace: 'marron-castan-o', 'marron-castano' -%}
+        {%- assign swatch_filename = 'hilo-' | append: handle_part | append: '.png' -%}
+        {%- assign swatch_url = swatch_filename | asset_url -%}
         <li class="letters-thread-color__item">
           <input
             class="letters-thread-color__radio"
@@ -38,7 +45,7 @@
             aria-label="{{ color_name | escape }}"
           >
           <label class="letters-thread-color__swatch" for="{{ element_id }}-{{ forloop.index0 }}" title="{{ color_name | escape }}">
-            <span class="letters-thread-color__dot" data-thread-color-name="{{ color_name | escape }}"></span>
+            <span class="letters-thread-color__dot" data-thread-color-name="{{ color_name | escape }}" style="background-image: url('{{ swatch_url }}');"></span>
           </label>
         </li>
       {%- endif -%}

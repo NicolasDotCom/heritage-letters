@@ -43,7 +43,7 @@
             "height": "fit",
             "details_position": "flex-start",
             "gap": 12,
-            "sticky_details_desktop": true,
+            "sticky_details_desktop": false,
             "background_media": "none",
             "background_color": "",
             "video_position": "cover",
@@ -873,7 +873,8 @@
                   "name": "Color del hilo",
                   "settings": {
                     "heading": "Color del hilo",
-                    "help_text": "Selecciona el color del hilo para el bordado."
+                    "help_text": "Selecciona el color del hilo para el bordado.",
+                    "colors": "Amarillo Pastel|Amarillo Limón|Amarillo Oro|Naranja Claro|Naranja Dorado|Azul Marino|Azul Rey|Azul Eléctrico|Azul Turquesa|Azul Celeste|Azul Bebé|Gris Grafito|Gris Acero|Gris Medio|Gris Claro|Burdeos|Rojo|Rojo Intenso|Naranja|Naranja Brillante|Marrón Oscuro|Marrón Medio|Marrón Castaño|Marrón Claro|Beige / Tostado|Marrón Moca|Marrón Camel|Verde Oliva Oscuro|Verde Esmeralda|Verde Bandera|Verde Lima|Verde Oliva Claro"
                   }
                 },
                 "custom_property_device": {

@@ -112,7 +112,7 @@ class LettersFundas {
     for (const radio of this.#checkedPickerRadios()) {
       if (isTechniqueValue(radio.value)) return normalize(radio.value);
     }
-    return 'bordado';
+    return null;
   }
 
   currentLeather() {
@@ -125,7 +125,8 @@ class LettersFundas {
 
   validate() {
     if (!this.root || this.root.hidden) return true;
-    if (this.currentTechnique() !== 'bordado') return true;
+    const technique = this.currentTechnique();
+    if (!technique || technique !== 'bordado') return true;
     return Boolean(document.querySelector(`${SELECTORS.threadRadio}:checked`));
   }
 
@@ -153,7 +154,8 @@ class LettersFundas {
 
   applyThreadVisibility() {
     if (!this.root) return;
-    const hideThread = this.currentTechnique() === 'repujado';
+    const technique = this.currentTechnique();
+    const hideThread = !technique || technique === 'repujado';
     this.root.hidden = hideThread;
     for (const radio of this.#threadRadios()) {
       radio.disabled = hideThread;
@@ -162,6 +164,7 @@ class LettersFundas {
   }
 
   applyOverlay() {
+    if (!this.root) return;
     const technique = this.currentTechnique();
     for (const media of document.querySelectorAll(SELECTORS.productMedia)) {
       let overlay = media.querySelector(':scope > .letters-thread-overlay');
@@ -183,6 +186,10 @@ class LettersFundas {
 
   applyThreadColor() {
     const checked = document.querySelector(`${SELECTORS.threadRadio}:checked`);
+    const label = this.root?.querySelector('[data-letters-thread-selected]');
+    if (label) {
+      label.textContent = checked ? checked.value : '';
+    }
     const hex = this.#threadHex(checked ? checked.value : null);
     for (const overlay of document.querySelectorAll('.letters-thread-overlay')) {
       if (hex) overlay.style.setProperty('--thread-color', hex);
@@ -192,6 +199,7 @@ class LettersFundas {
   colorizeSwatches() {
     for (const dot of document.querySelectorAll('[data-thread-color-name]')) {
       if (!(dot instanceof HTMLElement)) continue;
+      if (dot.style.backgroundImage && !dot.style.backgroundImage.includes('none')) continue;
       const hex = this.#threadHex(dot.dataset.threadColorName);
       if (hex) dot.style.backgroundColor = hex;
     }

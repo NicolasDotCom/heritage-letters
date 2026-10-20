@@ -21,6 +21,12 @@
     assign show_compare_price = true
   endif
 
+  assign discount_percent = 0
+  if show_compare_price and compare_at_price > 0
+    assign discount_diff = compare_at_price | minus: price
+    assign discount_percent = discount_diff | times: 100.0 | divided_by: compare_at_price | round
+  endif
+
   if product_resource == blank
     assign price = 1999
   endif
@@ -99,6 +105,9 @@
           <span class="visually-hidden">{{ 'content.price_regular' | t }}&nbsp;</span>
           <bdi>{{- compare_at_price -}}</bdi>
         </span>
+        {% if discount_percent > 0 %}
+          <span class="price__discount-badge">-{{ discount_percent }}%</span>
+        {% endif %}
       {% else %}
         <span class="price-item__group price-item--regular compare-at-price">
           <span class="visually-hidden">{{ 'content.price_regular' | t }}&nbsp;</span>
@@ -108,6 +117,9 @@
           <span class="visually-hidden">{{ 'content.price_sale' | t }}&nbsp;</span>
           <bdi>{{ price | default: '&nbsp;' }}</bdi>
         </span>
+        {% if discount_percent > 0 %}
+          <span class="price__discount-badge">-{{ discount_percent }}%</span>
+        {% endif %}
       {% endif %}
     {% else %}
       <span class="price"

@@ -1,0 +1,144 @@
+{%- doc -%}
+  Insignias de confianza y garantía artesanal para LETTERS Colombia.
+  Se ubican debajo de la galería de medios del producto para maximizar credibilidad y equilibrar el diseño.
+{%- enddoc -%}
+
+<div class="letters-trust-badges">
+  <div class="letters-trust-badge">
+    <div class="letters-trust-badge__icon">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+        <path d="M9 12l2 2 4-4"/>
+      </svg>
+    </div>
+    <div class="letters-trust-badge__content">
+      <h4 class="letters-trust-badge__title">Garantía de 2 Años</h4>
+      <p class="letters-trust-badge__desc">En materiales y costuras de por vida.</p>
+    </div>
+  </div>
+
+  <div class="letters-trust-badge">
+    <div class="letters-trust-badge__icon">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <polygon points="6 2 18 2 21 8 12 22 3 8 6 2"/>
+        <line x1="3" y1="8" x2="21" y2="8"/>
+        <line x1="12" y1="2" x2="8" y2="8"/>
+        <line x1="12" y1="2" x2="16" y2="8"/>
+      </svg>
+    </div>
+    <div class="letters-trust-badge__content">
+      <h4 class="letters-trust-badge__title">Cuero Genuino Full Grain</h4>
+      <p class="letters-trust-badge__desc">Pátina natural, hecho a mano en Colombia.</p>
+    </div>
+  </div>
+
+  <div class="letters-trust-badge">
+    <div class="letters-trust-badge__icon">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <polyline points="20 12 20 22 4 22 4 12"/>
+        <rect x="2" y="7" width="20" height="5"/>
+        <line x1="12" y1="22" x2="12" y2="7"/>
+        <path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"/>
+        <path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/>
+      </svg>
+    </div>
+    <div class="letters-trust-badge__content">
+      <h4 class="letters-trust-badge__title">Empaque de Lujo Incluido</h4>
+      <p class="letters-trust-badge__desc">Bolsa de tela + tarjeta con nombre.</p>
+    </div>
+  </div>
+
+  <div class="letters-trust-badge">
+    <div class="letters-trust-badge__icon">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <rect x="1" y="3" width="15" height="13"/>
+        <polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/>
+        <circle cx="5.5" cy="18.5" r="2.5"/>
+        <circle cx="18.5" cy="18.5" r="2.5"/>
+      </svg>
+    </div>
+    <div class="letters-trust-badge__content">
+      <h4 class="letters-trust-badge__title">Envíos a Todo el País</h4>
+      <p class="letters-trust-badge__desc">Envíos asegurados y pago contra entrega.</p>
+    </div>
+  </div>
+</div>
+
+{% stylesheet %}
+  @media screen and (min-width: 750px) {
+    .product-information__media {
+      position: sticky !important;
+      top: calc(var(--header-height, 0px) + 20px) !important;
+      align-self: start !important;
+      height: fit-content !important;
+      z-index: 1;
+    }
+  }
+
+  .letters-trust-badges {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    margin-top: 24px;
+    padding-top: 20px;
+    border-top: 1px solid rgb(var(--color-foreground-rgb, 248 224 181) / 0.12);
+  }
+
+  @media screen and (max-width: 600px) {
+    .letters-trust-badges {
+      grid-template-columns: 1fr;
+      gap: 10px;
+    }
+  }
+
+  .letters-trust-badge {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    background: rgb(var(--color-foreground-rgb, 248 224 181) / 0.03);
+    border: 1px solid rgb(var(--color-foreground-rgb, 248 224 181) / 0.1);
+    border-radius: 8px;
+    padding: 12px 14px;
+    transition: transform 0.2s ease, border-color 0.2s ease, background-color 0.2s ease;
+  }
+
+  .letters-trust-badge:hover {
+    transform: translateY(-2px);
+    border-color: rgb(var(--color-foreground-rgb, 248 224 181) / 0.3);
+    background-color: rgb(var(--color-foreground-rgb, 248 224 181) / 0.06);
+  }
+
+  .letters-trust-badge__icon {
+    flex-shrink: 0;
+    color: var(--color-foreground, #F8E0B5);
+    background: rgb(var(--color-foreground-rgb, 248 224 181) / 0.08);
+    width: 38px;
+    height: 38px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .letters-trust-badge__content {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+  }
+
+  .letters-trust-badge__title {
+    margin: 0;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    color: var(--color-foreground, #F8E0B5);
+    line-height: 1.25;
+  }
+
+  .letters-trust-badge__desc {
+    margin: 0;
+    font-size: 0.72rem;
+    color: rgb(var(--color-foreground-rgb, 248 224 181) / 0.7);
+    line-height: 1.35;
+  }
+{% endstylesheet %}
