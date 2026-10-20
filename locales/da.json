@@ -20,6 +20,7 @@
     "slider_label": "Billedkarrusel"
   },
   "accessibility": {
+    "whatsapp_contact": "Contact us on WhatsApp",
     "play_model": "Afspil 3D-model",
     "play_video": "Afspil video",
     "unit_price": "Stykpris",
@@ -305,6 +306,7 @@
   },
   "products": {
     "product": {
+      "thread_required_error": "Please select a thread color.",
       "add_to_cart": "Læg i indkøbskurven",
       "added_to_cart": "Lagt i indkøbskurv",
       "adding_to_cart": "Tilføjer...",

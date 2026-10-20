@@ -20,6 +20,7 @@
     "slider_label": "Schuifregelaar"
   },
   "accessibility": {
+    "whatsapp_contact": "Contact us on WhatsApp",
     "play_model": "3D-model afspelen",
     "play_video": "Video afspelen",
     "unit_price": "Eenheidsprijs",
@@ -328,6 +329,7 @@
   },
   "products": {
     "product": {
+      "thread_required_error": "Please select a thread color.",
       "add_to_cart": "Aan winkelwagen toevoegen",
       "adding_to_cart": "Toevoegen...",
       "added_to_cart": "Toegevoegd aan winkelwagen",

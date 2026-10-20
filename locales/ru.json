@@ -20,6 +20,7 @@
     "slider_label": "Ползунок"
   },
   "accessibility": {
+    "whatsapp_contact": "Contact us on WhatsApp",
     "play_model": "Открыть объемную модель",
     "play_video": "Воспроизвести видео",
     "unit_price": "Цена за единицу",
@@ -342,6 +343,7 @@
   },
   "products": {
     "product": {
+      "thread_required_error": "Please select a thread color.",
       "add_to_cart": "Добавить в корзину",
       "adding_to_cart": "Добавление...",
       "added_to_cart": "Товар добавлен в корзину",

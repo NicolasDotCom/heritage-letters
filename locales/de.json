@@ -20,6 +20,7 @@
     "slider_label": "Slider"
   },
   "accessibility": {
+    "whatsapp_contact": "Contact us on WhatsApp",
     "play_model": "3D-Modell abspielen",
     "play_video": "Video abspielen",
     "unit_price": "Stückpreis",
@@ -305,6 +306,7 @@
   },
   "products": {
     "product": {
+      "thread_required_error": "Please select a thread color.",
       "add_to_cart": "In den Warenkorb legen",
       "added_to_cart": "Zum Warenkorb hinzugefügt",
       "adding_to_cart": "Wird hinzugefügt...",

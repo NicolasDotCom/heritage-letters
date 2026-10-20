@@ -20,6 +20,7 @@
     "slider_label": "Kaydırıcı"
   },
   "accessibility": {
+    "whatsapp_contact": "Contact us on WhatsApp",
     "play_model": "3B modeli oynat",
     "play_video": "Videoyu oynat",
     "unit_price": "Birim fiyatı",
@@ -328,6 +329,7 @@
   },
   "products": {
     "product": {
+      "thread_required_error": "Please select a thread color.",
       "add_to_cart": "Sepete ekle",
       "adding_to_cart": "Ekleniyor...",
       "added_to_cart": "Sepete eklendi",

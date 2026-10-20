@@ -20,6 +20,7 @@
     "slider_label": "滑块"
   },
   "accessibility": {
+    "whatsapp_contact": "Contact us on WhatsApp",
     "play_model": "演示 3D 模型",
     "play_video": "播放视频",
     "unit_price": "单价",
@@ -305,6 +306,7 @@
   },
   "products": {
     "product": {
+      "thread_required_error": "Please select a thread color.",
       "add_to_cart": "添加到购物车",
       "added_to_cart": "添加到购物车",
       "adding_to_cart": "正在添加...",

@@ -20,6 +20,7 @@
     "slider_label": "Thanh trượt"
   },
   "accessibility": {
+    "whatsapp_contact": "Contact us on WhatsApp",
     "play_model": "Phát mô hình 3D",
     "play_video": "Phát video",
     "unit_price": "Đơn giá",
@@ -328,6 +329,7 @@
   },
   "products": {
     "product": {
+      "thread_required_error": "Please select a thread color.",
       "add_to_cart": "Thêm vào giỏ hàng",
       "adding_to_cart": "Đang thêm...",
       "added_to_cart": "Đã thêm vào giỏ hàng",

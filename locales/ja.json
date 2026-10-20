@@ -20,6 +20,7 @@
     "slider_label": "スライダー"
   },
   "accessibility": {
+    "whatsapp_contact": "Contact us on WhatsApp",
     "play_model": "3Dモデルを再生",
     "play_video": "ビデオを再生",
     "unit_price": "単価",
@@ -305,6 +306,7 @@
   },
   "products": {
     "product": {
+      "thread_required_error": "Please select a thread color.",
       "add_to_cart": "カートに追加する",
       "added_to_cart": "カートに追加済み",
       "adding_to_cart": "追加中...",

@@ -20,6 +20,7 @@
     "slider_label": "Ρυθμιστικό"
   },
   "accessibility": {
+    "whatsapp_contact": "Contact us on WhatsApp",
     "play_model": "Αναπαραγωγή μοντέλου 3D",
     "play_video": "Αναπαραγωγή βίντεο",
     "unit_price": "Τιμή μονάδας",
@@ -305,6 +306,7 @@
   },
   "products": {
     "product": {
+      "thread_required_error": "Please select a thread color.",
       "add_to_cart": "Προσθήκη στο καλάθι",
       "added_to_cart": "Προστέθηκε στο καλάθι",
       "adding_to_cart": "Προσθήκη...",

@@ -1,5 +1,6 @@
 {
   "accessibility": {
+    "whatsapp_contact": "Contact us on WhatsApp",
     "account": "اکاؤنٹ",
     "active_filters": "فعال فلٹر:",
     "cart": "کارٹ",
@@ -328,6 +329,7 @@
   },
   "products": {
     "product": {
+      "thread_required_error": "Please select a thread color.",
       "add_to_cart": "کارٹ میں شامل کریں",
       "adding_to_cart": "شامل کیا جا رہا ہے...",
       "added_to_cart": "کارٹ میں شامل کر دیا گیا",

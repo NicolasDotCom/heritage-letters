@@ -1,5 +1,6 @@
 {
   "accessibility": {
+    "whatsapp_contact": "Contact us on WhatsApp",
     "account": "חשבון",
     "active_filters": "מסננים פעילים:",
     "cart": "סל",
@@ -342,6 +343,7 @@
   },
   "products": {
     "product": {
+      "thread_required_error": "Please select a thread color.",
       "add_to_cart": "הוספה לסל",
       "adding_to_cart": "מוסיף...",
       "added_to_cart": "נוסף לסל",

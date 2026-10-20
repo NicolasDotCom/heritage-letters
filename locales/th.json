@@ -20,6 +20,7 @@
     "slider_label": "แถบเลื่อน"
   },
   "accessibility": {
+    "whatsapp_contact": "Contact us on WhatsApp",
     "play_model": "เล่นโมเดล 3 มิติ",
     "play_video": "เล่นวิดีโอ",
     "unit_price": "ราคาต่อหน่วย",
@@ -305,6 +306,7 @@
   },
   "products": {
     "product": {
+      "thread_required_error": "Please select a thread color.",
       "add_to_cart": "เพิ่มลงในตะกร้าสินค้า",
       "added_to_cart": "เพิ่มลงในตะกร้าสินค้าแล้ว",
       "adding_to_cart": "กำลังเพิ่ม...",

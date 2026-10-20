@@ -20,6 +20,7 @@
     "slider_label": "Liukusäädin"
   },
   "accessibility": {
+    "whatsapp_contact": "Contact us on WhatsApp",
     "play_model": "Toista 3D-malli",
     "play_video": "Toista video",
     "unit_price": "Yksikköhinta",
@@ -305,6 +306,7 @@
   },
   "products": {
     "product": {
+      "thread_required_error": "Please select a thread color.",
       "add_to_cart": "Lisää ostoskoriin",
       "added_to_cart": "Lisätty ostoskoriin",
       "adding_to_cart": "Lisätään...",

@@ -20,6 +20,7 @@
     "slider_label": "Kliznik"
   },
   "accessibility": {
+    "whatsapp_contact": "Contact us on WhatsApp",
     "play_model": "Reproduciraj 3D model",
     "play_video": "Reproduciraj videozapis",
     "unit_price": "Jedinična cijena",
@@ -311,6 +312,7 @@
   },
   "products": {
     "product": {
+      "thread_required_error": "Please select a thread color.",
       "add_to_cart": "Dodaj u košaricu",
       "added_to_cart": "Dodano u košaricu",
       "adding_to_cart": "Dodavanje...",

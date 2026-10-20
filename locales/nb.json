@@ -20,6 +20,7 @@
     "slider_label": "Glidefelt"
   },
   "accessibility": {
+    "whatsapp_contact": "Contact us on WhatsApp",
     "play_model": "Spill av 3D-modell",
     "play_video": "Spill av video",
     "unit_price": "Enhetspris",
@@ -328,6 +329,7 @@
   },
   "products": {
     "product": {
+      "thread_required_error": "Please select a thread color.",
       "add_to_cart": "Legg i handlekurv",
       "adding_to_cart": "Legger til ...",
       "added_to_cart": "Lagt til i handlekurv",

@@ -20,6 +20,7 @@
     "slider_label": "Bild"
   },
   "accessibility": {
+    "whatsapp_contact": "Contact us on WhatsApp",
     "play_model": "Spela 3D-modell",
     "play_video": "Spela video",
     "unit_price": "Enhetspris",
@@ -328,6 +329,7 @@
   },
   "products": {
     "product": {
+      "thread_required_error": "Please select a thread color.",
       "add_to_cart": "Lägg till i varukorgen",
       "adding_to_cart": "Lägger till ...",
       "added_to_cart": "Tillagd i varukorgen",

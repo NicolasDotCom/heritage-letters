@@ -20,6 +20,7 @@
     "slider_label": "投影播放器"
   },
   "accessibility": {
+    "whatsapp_contact": "Contact us on WhatsApp",
     "play_model": "播放 3D 模型",
     "play_video": "播放影片",
     "unit_price": "單價",
@@ -328,6 +329,7 @@
   },
   "products": {
     "product": {
+      "thread_required_error": "Please select a thread color.",
       "add_to_cart": "加入購物車",
       "adding_to_cart": "正在新增…",
       "added_to_cart": "已放入購物車",

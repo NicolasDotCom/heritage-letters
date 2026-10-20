@@ -20,6 +20,7 @@
     "slider_label": "Slankiklis"
   },
   "accessibility": {
+    "whatsapp_contact": "Contact us on WhatsApp",
     "play_model": "Paleisti 3D modelį",
     "play_video": "Paleisti vaizdo įrašą",
     "unit_price": "Vieneto kaina",
@@ -342,6 +343,7 @@
   },
   "products": {
     "product": {
+      "thread_required_error": "Please select a thread color.",
       "add_to_cart": "Įdėti į krepšelį",
       "adding_to_cart": "Pridedama…",
       "added_to_cart": "Įdėta į krepšelį",
