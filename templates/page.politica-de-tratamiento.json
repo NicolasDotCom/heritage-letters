@@ -1,0 +1,39 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "blocks": {
+        "heading": {
+          "type": "text",
+          "name": "t:names.title",
+          "settings": {
+            "text": "<h1>{{ closest.page.title }}</h1>",
+            "width": "100%",
+            "type_preset": "h2"
+          }
+        },
+        "legal-content": {
+          "type": "text",
+          "settings": {
+            "text": "<p><strong>1. Finalidad de la Recolección</strong> En cumplimiento de la Ley 1581 de 2012 y el Decreto 1377 de 2013, informamos que los datos personales que usted nos suministra (nombre, dirección, teléfono, correo electrónico) serán tratados con las siguientes finalidades:</p><ul><li>Procesar, completar y enviar sus pedidos.<br/></li><li>Enviar notificaciones sobre el estado de su envío.<br/></li><li>Responder a sus consultas de servicio al cliente.<br/></li><li>Enviar información sobre nuevos \"Capítulos\" (lanzamientos), eventos exclusivos y contenido de marca (\"Correspondencia Privada\"), siempre que usted haya otorgado su autorización expresa para ello.<br/></li></ul><p><strong>2. Derechos del Titular (Habeas Data)</strong> Como titular de sus datos, usted tiene derecho a:</p><ul><li><strong>Conocer, actualizar y rectificar</strong> sus datos personales.<br/></li><li><strong>Solicitar prueba</strong> de la autorización otorgada.<br/></li><li><strong>Revocar la autorización</strong> y/o solicitar la supresión del dato cuando no se respeten los principios, derechos y garantías constitucionales y legales.<br/></li><li>Acceder en forma gratuita a sus datos personales que hayan sido objeto de Tratamiento.<br/></li></ul><p><strong>3. Seguridad de la Información</strong> LETTERS se compromete a proteger su información personal utilizando precauciones razonables y siguiendo las mejores prácticas de la industria (cifrado SSL en la tienda) para asegurarse de que no haya pérdida, mal uso, acceso, divulgación, alteración o destrucción inapropiada de la misma.</p><p><strong>4. Canal de Atención</strong> Para ejercer sus derechos de Habeas Data, actualizar su información o darse de baja de nuestra lista de correos, puede contactarnos en cualquier momento a través del correo electrónico: <strong> contacto@letterscolombia.com</strong>.</p>",
+            "width": "100%",
+            "type_preset": "rte"
+          }
+        }
+      },
+      "block_order": [
+        "heading",
+        "legal-content"
+      ],
+      "settings": {
+        "gap": 32,
+        "background_color": "{{ settings.color_palette.background }}",
+        "padding-block-start": 40,
+        "padding-block-end": 80
+      }
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

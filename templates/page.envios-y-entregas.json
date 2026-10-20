@@ -1,0 +1,39 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "blocks": {
+        "heading": {
+          "type": "text",
+          "name": "t:names.title",
+          "settings": {
+            "text": "<h1>{{ closest.page.title }}</h1>",
+            "width": "100%",
+            "type_preset": "h2"
+          }
+        },
+        "legal-content": {
+          "type": "text",
+          "settings": {
+            "text": "<p>En <strong>LETTERS</strong>, creemos que la experiencia de lujo no termina en el carrito de compras, sino cuando recibes la pieza en tus manos. Nos encargamos de gestionar la logística para que tú solo te preocupes por disfrutar tu elección.</p><p><strong>1. Cobertura y Costos</strong> Para honrar tu preferencia, el envío corre por nuestra cuenta.</p><ul><li><strong>Costo:</strong> Envío GRATIS (Cortesía de la casa).<br/></li><li><strong>Cobertura:</strong> Realizamos entregas a todos los municipios de Colombia.<br/></li></ul><p><strong>2. Tiempos de Entrega</strong> Sabemos que deseas recibir tu pedido cuanto antes, pero también respetamos el proceso de preparación de cada pieza.</p><ul><li><strong>Tiempo estimado:</strong> 5 días hábiles contados a partir de la confirmación de tu compra.<br/></li><li><em>Nota:</em> Este tiempo nos permite preparar tu paquete con el cuidado y la protección que merece un producto de lujo.<br/></li></ul><p><strong>3. Seguimiento de tu Pedido</strong> Una vez despachado tu paquete, recibirás un correo electrónico con el número de guía (tracking) para que puedas monitorear el trayecto de tu compra en tiempo real a través de nuestras transportadoras aliadas.</p><p><strong>4. Novedades en la Entrega</strong> Si te encuentras ausente al momento de la entrega, la transportadora realizará un segundo intento. Si tienes alguna instrucción especial para la recepción (portería, oficina, etc.), por favor contáctanos inmediatamente después de tu compra.</p><p><strong>¿Dudas sobre tu envío?</strong> Escríbenos a nuestro <a href=\"https://api.whatsapp.com/send/?phone=573007521018&text=Hola%20Letters%2C%20tengo%20una%20duda%20sobre%20mi%20env%C3%ADo.\" target=\"_blank\" rel=\"noopener noreferrer\">WhatsApp</a> y rastrearemos tu pedido personalmente.</p>",
+            "width": "100%",
+            "type_preset": "rte"
+          }
+        }
+      },
+      "block_order": [
+        "heading",
+        "legal-content"
+      ],
+      "settings": {
+        "gap": 32,
+        "background_color": "{{ settings.color_palette.background }}",
+        "padding-block-start": 40,
+        "padding-block-end": 80
+      }
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

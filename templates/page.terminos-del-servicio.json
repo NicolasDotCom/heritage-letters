@@ -1,0 +1,39 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "blocks": {
+        "heading": {
+          "type": "text",
+          "name": "t:names.title",
+          "settings": {
+            "text": "<h1>{{ closest.page.title }}</h1>",
+            "width": "100%",
+            "type_preset": "h2"
+          }
+        },
+        "legal-content": {
+          "type": "text",
+          "settings": {
+            "text": "<p><strong>1. Aspectos Generales</strong>  Al visitar nuestro sitio y/o comprar algo de nosotros, usted acepta los siguientes términos y condiciones. Nos reservamos el derecho de actualizar o cambiar cualquier parte de estos Términos del Servicio mediante la publicación de actualizaciones en nuestro sitio web.</p><p><strong>2. Productos y Exclusividad</strong> Nuestros productos (marroquinería y perfumería) son elaborados con atención al detalle y, en muchos casos, de forma artesanal.</p><ul><li><strong>Colores y Texturas:</strong> Hemos hecho el esfuerzo de mostrar con la mayor precisión posible los colores y texturas de nuestros productos. Sin embargo, dado que el cuero es un material natural y las pantallas varían, no podemos garantizar que la visualización en su monitor sea exacta.<br/></li><li><strong>Disponibilidad:</strong> Ciertos productos pueden tener cantidades limitadas y están sujetos a devolución o cambio solo de acuerdo con el Derecho de Retracto establecido en la sección 4 de estos Términos del Servicio.<br/></li></ul><p><strong>3. Precios y Pagos</strong> Los precios de nuestros productos están expresados en Pesos Colombianos (COP). Nos reservamos el derecho de modificar los precios sin previo aviso. El producto solo será despachado una vez se haya confirmado el pago a través de nuestra pasarela segura.</p><p><strong>4. Derecho de Retracto (Ley 1480 de 2011)</strong> De acuerdo con el Estatuto del Consumidor en Colombia, usted tiene derecho a retractarse de su compra dentro de los <strong>cinco (5) días hábiles</strong> siguientes a la entrega del producto. Para ejercer este derecho, contáctenos a través del correo electrónico <strong>contacto@letterscolombia.com</strong> o escríbanos a nuestro <a href=\"https://api.whatsapp.com/send/?phone=573007521018&text=Hola%20Letters%2C%20quiero%20ejercer%20mi%20derecho%20de%20retracto.\" target=\"_blank\" rel=\"noopener noreferrer\">WhatsApp</a>.</p><ul><li><strong>Condición:</strong> El producto debe devolverse en las mismas condiciones en que se recibió (sin uso, con etiquetas y empaque original).<br/></li><li><strong>Costos:</strong> Los costos de transporte y los demás que conlleve la devolución del bien serán cubiertos por el consumidor.<br/></li><li><strong>Excepciones:</strong> Por razones de higiene y seguridad, no se acepta derecho de retracto en <strong>perfumería</strong> si el celofán o sello de seguridad ha sido abierto, ni en productos de uso personal íntimo.<br/></li></ul><p><strong>5. Garantía Legal</strong> Nuestros productos de cuero cuentan con una garantía de <strong>90 días</strong> por defectos de fabricación (costuras, herrajes, pegues). La garantía no cubre daños causados por mal uso, desgaste natural del cuero, raspones o exposición a productos químicos.</p><p><strong>6. Legislación Aplicable</strong> Estos Términos del Servicio se regirán e interpretarán de acuerdo con las leyes de la República de Colombia.</p>",
+            "width": "100%",
+            "type_preset": "rte"
+          }
+        }
+      },
+      "block_order": [
+        "heading",
+        "legal-content"
+      ],
+      "settings": {
+        "gap": 32,
+        "background_color": "{{ settings.color_palette.background }}",
+        "padding-block-start": 40,
+        "padding-block-end": 80
+      }
+    }
+  },
+  "order": [
+    "main"
+  ]
+}
