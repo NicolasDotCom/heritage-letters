@@ -201,7 +201,7 @@
         "columns_gap": 100,
         "bento_gap": 48,
         "rows_gap": 8,
-        "max_collections": 4,
+        "max_collections": 1,
         "icons_style": "arrow",
         "icons_shape": "none",
         "section_width": "page-width",
