@@ -190,7 +190,9 @@
       },
       "name": "t:names.collections_editorial",
       "settings": {
-        "collection_list": [],
+        "collection_list": [
+          "capitulo-i"
+        ],
         "layout_type": "editorial",
         "carousel_on_mobile": false,
         "columns": 2,
