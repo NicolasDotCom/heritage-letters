@@ -251,6 +251,7 @@
     "recipient_form_fields_hidden": "Los campos de destinatario en el formulario ya no son visibles",
     "recipient_form_error": "Hubo un error al enviar el formulario",
     "product_custom_property_character_count": "{{ used_chars }} de {{ max_chars }} caracteres utilizados",
+    "brand_tagline": "Cuero genuino hecho a mano en Colombia y personalizado con tus iniciales. Envíos a todo el país.",
     "terms_and_policies": "Términos y políticas",
     "pagination": {
       "nav_label": "Paginación",

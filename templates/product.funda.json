@@ -911,6 +911,19 @@
                     "required": false,
                     "placeholder": "Ej: ABC"
                   }
+                },
+                "whatsapp_help": {
+                  "type": "letters-whatsapp-cta",
+                  "name": "Ayuda WhatsApp",
+                  "settings": {
+                    "text": "¿Dudas para elegir cuero, color o iniciales? Te asesoramos por WhatsApp.",
+                    "button_label": "Escríbenos",
+                    "phone": "573007521018",
+                    "message": "Hola Letters, quiero mi funda personalizada y necesito asesoría.",
+                    "padding-block-start": 8,
+                    "padding-block-end": 8
+                  },
+                  "blocks": {}
                 }
               },
               "block_order": [
@@ -920,6 +933,7 @@
                 "custom_property_device",
                 "custom_property_initials",
                 "buy_buttons_64taHw",
+                "whatsapp_help",
                 "text_wnQCmf",
                 "group_JK8NUb",
                 "product_recommendations_Rpc8dN"
@@ -929,7 +943,7 @@
               "type": "disclosures",
               "name": "t:names.disclosures",
               "settings": {
-                "heading": "Disclosures",
+                "heading": "Preguntas frecuentes",
                 "heading_preset": "h5",
                 "open_by_default": false,
                 "icon": "caret",
@@ -942,7 +956,130 @@
                 "padding-inline-start": 0,
                 "padding-inline-end": 10
               },
-              "blocks": {}
+              "blocks": {
+                "faq_tiempos": {
+                  "type": "_accordion-row",
+                  "settings": {
+                    "heading": "¿Cuánto tarda mi pedido?",
+                    "open_by_default": false,
+                    "icon": "none",
+                    "width": 20
+                  },
+                  "blocks": {
+                    "faq_tiempos_text": {
+                      "type": "text",
+                      "settings": {
+                        "text": "<p>Cada pieza se hace a mano en 5 días hábiles. Después el envío tarda entre 2 y 5 días según tu ciudad. Te avisamos por WhatsApp cuando tu pedido sale de taller.</p>",
+                        "width": "100%"
+                      }
+                    }
+                  },
+                  "block_order": ["faq_tiempos_text"]
+                },
+                "faq_dispositivo": {
+                  "type": "_accordion-row",
+                  "settings": {
+                    "heading": "¿Cómo envío los datos de mi dispositivo?",
+                    "open_by_default": false,
+                    "icon": "none",
+                    "width": 20
+                  },
+                  "blocks": {
+                    "faq_dispositivo_text": {
+                      "type": "text",
+                      "settings": {
+                        "text": "<p>En el paso de compra encontrarás el campo <strong>Datos del dispositivo</strong>: escríbenos marca, modelo y pulgadas. Si es una tablet, indícanos si tienes teclado y lápiz. Cada funda se hace a la medida exacta.</p>",
+                        "width": "100%"
+                      }
+                    }
+                  },
+                  "block_order": ["faq_dispositivo_text"]
+                },
+                "faq_personalizacion": {
+                  "type": "_accordion-row",
+                  "settings": {
+                    "heading": "¿Puedo elegir el color del hilo y mis iniciales?",
+                    "open_by_default": false,
+                    "icon": "none",
+                    "width": 20
+                  },
+                  "blocks": {
+                    "faq_personalizacion_text": {
+                      "type": "text",
+                      "settings": {
+                        "text": "<p>Sí. Con <strong>bordado</strong> eliges entre 32 colores de hilo y grabas hasta 3 iniciales. Con <strong>repujado</strong>, las iniciales van en relieve sobre cuero liso.</p>",
+                        "width": "100%"
+                      }
+                    }
+                  },
+                  "block_order": ["faq_personalizacion_text"]
+                },
+                "faq_cuidado": {
+                  "type": "_accordion-row",
+                  "settings": {
+                    "heading": "¿Cómo cuido el cuero?",
+                    "open_by_default": false,
+                    "icon": "none",
+                    "width": 20
+                  },
+                  "blocks": {
+                    "faq_cuidado_text": {
+                      "type": "text",
+                      "settings": {
+                        "text": "<p>Límpialo con un paño seco y evita la exposición prolongada al agua. El cuero Full Grain mejora con el uso: su pátina es parte de su historia.</p>",
+                        "width": "100%"
+                      }
+                    }
+                  },
+                  "block_order": ["faq_cuidado_text"]
+                },
+                "faq_envios": {
+                  "type": "_accordion-row",
+                  "settings": {
+                    "heading": "¿Hacen envíos y hay pago contra entrega?",
+                    "open_by_default": false,
+                    "icon": "none",
+                    "width": 20
+                  },
+                  "blocks": {
+                    "faq_envios_text": {
+                      "type": "text",
+                      "settings": {
+                        "text": "<p>Enviamos a todo Colombia. Envío gratis en pedidos superiores a $250.000 COP y pago contra entrega disponible. Tu pedido viaja en bolsa de tela con tarjeta personalizada.</p>",
+                        "width": "100%"
+                      }
+                    }
+                  },
+                  "block_order": ["faq_envios_text"]
+                },
+                "faq_garantia": {
+                  "type": "_accordion-row",
+                  "settings": {
+                    "heading": "¿Qué cubre la garantía?",
+                    "open_by_default": false,
+                    "icon": "none",
+                    "width": 20
+                  },
+                  "blocks": {
+                    "faq_garantia_text": {
+                      "type": "text",
+                      "settings": {
+                        "text": "<p>2 años sobre materiales y costuras. Si algo falla, escríbenos al WhatsApp y lo resolvemos.</p>",
+                        "width": "100%"
+                      }
+                    }
+                  },
+                  "block_order": ["faq_garantia_text"]
+                }
+              },
+              "block_order": [
+                "faq_tiempos",
+                "faq_dispositivo",
+                "faq_personalizacion",
+                "faq_cuidado",
+                "faq_envios",
+                "faq_garantia"
+              ]
             }
           },
           "block_order": [

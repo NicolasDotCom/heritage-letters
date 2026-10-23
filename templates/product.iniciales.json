@@ -880,6 +880,19 @@
                     "required": false,
                     "placeholder": "Ej: ABC"
                   }
+                },
+                "whatsapp_help": {
+                  "type": "letters-whatsapp-cta",
+                  "name": "Ayuda WhatsApp",
+                  "settings": {
+                    "text": "¿Dudas sobre la personalización? Te asesoramos por WhatsApp.",
+                    "button_label": "Escríbenos",
+                    "phone": "573007521018",
+                    "message": "Hola Letters, quiero personalizar este producto con mis iniciales.",
+                    "padding-block-start": 8,
+                    "padding-block-end": 8
+                  },
+                  "blocks": {}
                 }
               },
               "block_order": [
@@ -887,6 +900,7 @@
                 "variant_picker_VT89rh",
                 "custom_property_initials",
                 "buy_buttons_64taHw",
+                "whatsapp_help",
                 "text_wnQCmf",
                 "group_JK8NUb",
                 "product_recommendations_Rpc8dN"
@@ -896,7 +910,7 @@
               "type": "disclosures",
               "name": "t:names.disclosures",
               "settings": {
-                "heading": "Disclosures",
+                "heading": "Preguntas frecuentes",
                 "heading_preset": "h5",
                 "open_by_default": false,
                 "icon": "caret",
@@ -909,7 +923,110 @@
                 "padding-inline-start": 0,
                 "padding-inline-end": 10
               },
-              "blocks": {}
+              "blocks": {
+                "faq_tiempos": {
+                  "type": "_accordion-row",
+                  "settings": {
+                    "heading": "¿Cuánto tarda mi pedido?",
+                    "open_by_default": false,
+                    "icon": "none",
+                    "width": 20
+                  },
+                  "blocks": {
+                    "faq_tiempos_text": {
+                      "type": "text",
+                      "settings": {
+                        "text": "<p>Cada pieza se hace a mano en 5 días hábiles. Después el envío tarda entre 2 y 5 días según tu ciudad. Te avisamos por WhatsApp cuando tu pedido sale de taller.</p>",
+                        "width": "100%"
+                      }
+                    }
+                  },
+                  "block_order": ["faq_tiempos_text"]
+                },
+                "faq_iniciales": {
+                  "type": "_accordion-row",
+                  "settings": {
+                    "heading": "¿Cómo personalizo con mis iniciales?",
+                    "open_by_default": false,
+                    "icon": "none",
+                    "width": 20
+                  },
+                  "blocks": {
+                    "faq_iniciales_text": {
+                      "type": "text",
+                      "settings": {
+                        "text": "<p>Al comprar verás el campo <strong>Iniciales personalizadas</strong>: escribe hasta 3 letras y elige bordado o repujado. Las hacemos a mano, una a una.</p>",
+                        "width": "100%"
+                      }
+                    }
+                  },
+                  "block_order": ["faq_iniciales_text"]
+                },
+                "faq_cuidado": {
+                  "type": "_accordion-row",
+                  "settings": {
+                    "heading": "¿Cómo cuido el cuero?",
+                    "open_by_default": false,
+                    "icon": "none",
+                    "width": 20
+                  },
+                  "blocks": {
+                    "faq_cuidado_text": {
+                      "type": "text",
+                      "settings": {
+                        "text": "<p>Límpialo con un paño seco y evita la exposición prolongada al agua. El cuero Full Grain mejora con el uso: su pátina es parte de su historia.</p>",
+                        "width": "100%"
+                      }
+                    }
+                  },
+                  "block_order": ["faq_cuidado_text"]
+                },
+                "faq_envios": {
+                  "type": "_accordion-row",
+                  "settings": {
+                    "heading": "¿Hacen envíos y hay pago contra entrega?",
+                    "open_by_default": false,
+                    "icon": "none",
+                    "width": 20
+                  },
+                  "blocks": {
+                    "faq_envios_text": {
+                      "type": "text",
+                      "settings": {
+                        "text": "<p>Enviamos a todo Colombia. Envío gratis en pedidos superiores a $250.000 COP y pago contra entrega disponible. Tu pedido viaja en bolsa de tela con tarjeta personalizada.</p>",
+                        "width": "100%"
+                      }
+                    }
+                  },
+                  "block_order": ["faq_envios_text"]
+                },
+                "faq_garantia": {
+                  "type": "_accordion-row",
+                  "settings": {
+                    "heading": "¿Qué cubre la garantía?",
+                    "open_by_default": false,
+                    "icon": "none",
+                    "width": 20
+                  },
+                  "blocks": {
+                    "faq_garantia_text": {
+                      "type": "text",
+                      "settings": {
+                        "text": "<p>2 años sobre materiales y costuras. Si algo falla, escríbenos al WhatsApp y lo resolvemos.</p>",
+                        "width": "100%"
+                      }
+                    }
+                  },
+                  "block_order": ["faq_garantia_text"]
+                }
+              },
+              "block_order": [
+                "faq_tiempos",
+                "faq_iniciales",
+                "faq_cuidado",
+                "faq_envios",
+                "faq_garantia"
+              ]
             }
           },
           "block_order": [

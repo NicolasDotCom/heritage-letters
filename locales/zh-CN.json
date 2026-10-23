@@ -246,6 +246,7 @@
     "recipient_form_fields_hidden": "收件人表单字段现已隐藏",
     "recipient_form_error": "提交表单时出现错误",
     "product_custom_property_character_count": "已输入 {{ used_chars }} 个字符，最多 {{ max_chars }} 个",
+    "brand_tagline": "Full grain leather, handmade in Colombia and personalized with your initials. Shipping nationwide.",
     "terms_and_policies": "条款和政策",
     "pagination": {
       "nav_label": "分页",

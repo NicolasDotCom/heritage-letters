@@ -246,6 +246,7 @@
     "recipient_form_fields_hidden": "Feltene i mottakerskjemaet er nå skjult",
     "recipient_form_error": "Det oppsto en feil ved innsendingen av skjemaet",
     "product_custom_property_character_count": "{{ used_chars }}/{{ max_chars }} tegn er brukt",
+    "brand_tagline": "Full grain leather, handmade in Colombia and personalized with your initials. Shipping nationwide.",
     "terms_and_policies": "Vilkår og betingelser",
     "pagination": {
       "nav_label": "Sideinndeling",

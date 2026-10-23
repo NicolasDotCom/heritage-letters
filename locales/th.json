@@ -246,6 +246,7 @@
     "recipient_form_fields_hidden": "ซ่อนช่องข้อมูลผู้รับในแบบฟอร์มแล้ว",
     "recipient_form_error": "เกิดข้อผิดพลาดในการส่งแบบฟอร์ม",
     "product_custom_property_character_count": "ใช้ไปแล้ว {{ used_chars }}/{{ max_chars }} อักขระ",
+    "brand_tagline": "Full grain leather, handmade in Colombia and personalized with your initials. Shipping nationwide.",
     "terms_and_policies": "ข้อกำหนดและนโยบาย",
     "pagination": {
       "nav_label": "การแบ่งหน้า",

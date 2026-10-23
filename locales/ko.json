@@ -246,6 +246,7 @@
     "recipient_form_fields_hidden": "이제 수취인 양식 필드가 숨겨집니다.",
     "recipient_form_error": "양식 제출과 관련하여 오류가 발생했습니다.",
     "product_custom_property_character_count": "{{ used_chars }}/{{ max_chars }}자 입력함",
+    "brand_tagline": "Full grain leather, handmade in Colombia and personalized with your initials. Shipping nationwide.",
     "terms_and_policies": "약관 및 정책",
     "pagination": {
       "nav_label": "페이지 매김",

@@ -256,6 +256,7 @@
     "recipient_form_fields_hidden": "Polja obrazca prejemnika so zdaj skrita",
     "recipient_form_error": "Pri pošiljanju obrazca je prišlo do napake",
     "product_custom_property_character_count": "Uporabljeno št. znakov: {{ used_chars }}/{{ max_chars }}",
+    "brand_tagline": "Full grain leather, handmade in Colombia and personalized with your initials. Shipping nationwide.",
     "terms_and_policies": "Pogoji in pravilniki",
     "pagination": {
       "nav_label": "Oštevilčenje strani",

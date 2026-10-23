@@ -246,6 +246,7 @@
     "recipient_form_fields_hidden": "Các trường biểu mẫu cho người nhận hiện đã được ẩn",
     "recipient_form_error": "Đã xảy ra lỗi khi gửi biểu mẫu",
     "product_custom_property_character_count": "Đã sử dụng {{ used_chars }}/{{ max_chars }} ký tự",
+    "brand_tagline": "Full grain leather, handmade in Colombia and personalized with your initials. Shipping nationwide.",
     "terms_and_policies": "Điều khoản và chính sách",
     "pagination": {
       "nav_label": "Phân trang",

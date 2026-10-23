@@ -294,6 +294,7 @@
     "recipient_form_fields_hidden": "حقول نموذج المستلم مخفية الآن",
     "recipient_form_error": "حدث خطأ أثناء إرسال النموذج",
     "product_custom_property_character_count": "تم استخدام {{ used_chars }}/{{ max_chars }} من الأحرف",
+    "brand_tagline": "Full grain leather, handmade in Colombia and personalized with your initials. Shipping nationwide.",
     "inventory_low_stock_show_count": {
       "one": "بقي {{ count }}",
       "other": "بقي {{ count }}",

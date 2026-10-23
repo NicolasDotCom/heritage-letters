@@ -256,6 +256,7 @@
     "recipient_form_fields_hidden": "Dabar gavėjo formos laukai yra paslėpti",
     "recipient_form_error": "Įvyko su formos pateikimu susijusi klaida",
     "product_custom_property_character_count": "Panaudota {{ used_chars }}/{{ max_chars }} simbolių",
+    "brand_tagline": "Full grain leather, handmade in Colombia and personalized with your initials. Shipping nationwide.",
     "terms_and_policies": "Sąlygos ir politika",
     "pagination": {
       "nav_label": "Skirstymas puslapiais",

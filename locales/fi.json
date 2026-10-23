@@ -246,6 +246,7 @@
     "recipient_form_fields_hidden": "Vastaanottajalomakekentät ovat nyt piilotettuja",
     "recipient_form_error": "Lomakkeen lähettämisessä tapahtui virhe",
     "product_custom_property_character_count": "{{ used_chars }}/{{ max_chars }} merkkiä käytetty",
+    "brand_tagline": "Full grain leather, handmade in Colombia and personalized with your initials. Shipping nationwide.",
     "terms_and_policies": "Ehdot ja käytännöt",
     "item_count_cutoff": "Yli {{ count }} tuotetta",
     "pagination": {

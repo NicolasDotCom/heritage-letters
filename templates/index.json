@@ -119,6 +119,17 @@
         "padding-block-end": 48
       }
     },
+    "section_trust_letters": {
+      "type": "custom-liquid",
+      "blocks": {},
+      "settings": {
+        "custom_liquid": "{% render 'letters-trust-badges' %}",
+        "background_color": "",
+        "section_width": "page-width",
+        "padding-block-start": 32,
+        "padding-block-end": 32
+      }
+    },
     "collection_list_Ge6pfb": {
       "type": "collection-list",
       "blocks": {
@@ -979,6 +990,7 @@
   },
   "order": [
     "section_MgkEX9",
+    "section_trust_letters",
     "collection_list_Ge6pfb",
     "media_with_content_CwFqjm",
     "product_list_4HyKBg",

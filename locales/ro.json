@@ -251,6 +251,7 @@
     "recipient_form_fields_hidden": "Câmpurile formularului pentru destinatar sunt acum ascunse",
     "recipient_form_error": "A apărut o eroare la trimiterea formularului",
     "product_custom_property_character_count": "{{ used_chars }}/{{ max_chars }} caractere folosite",
+    "brand_tagline": "Full grain leather, handmade in Colombia and personalized with your initials. Shipping nationwide.",
     "terms_and_policies": "Termeni și politici",
     "pagination": {
       "nav_label": "Paginare",

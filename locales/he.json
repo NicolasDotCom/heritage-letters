@@ -288,6 +288,7 @@
     "recipient_form_fields_hidden": "שדות טופס הנמען מוסתרים עכשיו",
     "recipient_form_error": "אירעה שגיאה בשליחת הטופס",
     "product_custom_property_character_count": "נעשה שימוש ב-{{ used_chars }}/{{ max_chars }} תווים",
+    "brand_tagline": "Full grain leather, handmade in Colombia and personalized with your initials. Shipping nationwide.",
     "inventory_low_stock_show_count": {
       "one": "נותר {{ count }}",
       "other": "נותרו {{ count }}",

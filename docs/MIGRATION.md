@@ -126,6 +126,13 @@ Checklist visual en preview (desktop + móvil):
 
 **Footer en español neutro** (`sections/footer-group.json`): "About us" → "Nosotros", "Shop" → "Tienda", "Support" → "Ayuda", "Our story" → "Nuestra historia", la descripción del bloque Nosotros lleva el manifiesto de marca ("LETTERS nace como una resistencia silenciosa ante el ruido…") y `show_powered_by: false` elimina el "Tecnología de Shopify" del copyright.
 
+**Fase 1 — Conversión** (optimización de la tienda):
+- **Social sharing**: nuevo setting `social_share_image` (Theme settings → Logo y favicon) + fallback de `og:image` en `snippets/meta-tags.liquid` (antes solo usaba `page_image`, vacío en home/colecciones). `og:description` ya no cae a `shop.name`: usa la tagline `content.brand_tagline` (presente en los 34 idiomas: es/en con copy propio, resto con fallback inglés).
+- **CTA WhatsApp en PDP**: bloque `letters-whatsapp-cta` añadido a `templates/product.{funda,iniciales}.json` (mensaje pre-rellenado distinto para funda y para personalización).
+- **FAQ en PDP**: el bloque `disclosures` de las plantillas `funda`/`iniciales` lleva 6 (funda) y 5 (iniciales) filas `_accordion-row` con dudas reales: tiempos, medidas del dispositivo, personalización, cuidado del cuero, envíos/contra entrega y garantía.
+- **Credenciales en home**: sección `custom-liquid` (`section_trust_letters`) que renderiza `snippets/letters-trust-badges` justo después del hero.
+- **404 traducido** ("Página no encontrada", "Nuestros más vendidos").
+
 **Copy en español**: las 3 plantillas de producto (`product`, `product.funda`, `product.iniciales`) sustituyen el copy placeholder de Heritage (Materiales / Cuidados / Detalles, badges "Hecho a mano…", "Combínalo con", "También te puede gustar"). La home (`templates/index.json`) lleva el titular del hero **"Tu historia, escrita en cuero"** + subtítulo + CTA **"Personaliza el tuyo"** (→ `/products/funda-cuero-genuino`), y los textos de secciones traducidos ("Destacado", "Nuestro producto insignia", "Nuestros más vendidos", "Nuevo lanzamiento"). Es copy provisional: se ajusta desde el editor y queda versionado en el repo.
 
 **Pendientes fuera del tema**:

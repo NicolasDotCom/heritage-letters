@@ -246,6 +246,7 @@
     "recipient_form_fields_hidden": "Alıcı form alanları artık gizli",
     "recipient_form_error": "Form gönderimi ile ilgili bir hata oluştu",
     "product_custom_property_character_count": "{{ used_chars }}/{{ max_chars }} karakter kullanıldı",
+    "brand_tagline": "Full grain leather, handmade in Colombia and personalized with your initials. Shipping nationwide.",
     "terms_and_policies": "Şartlar ve Politikalar",
     "pagination": {
       "nav_label": "Sayfalara ayırma",
