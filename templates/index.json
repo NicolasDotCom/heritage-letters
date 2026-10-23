@@ -10,113 +10,14 @@
 {
   "sections": {
     "section_MgkEX9": {
-      "type": "section",
-      "blocks": {
-        "text_kfVmdT": {
-          "type": "text",
-          "name": "t:names.heading",
-          "settings": {
-            "text": "<h2>Tu historia,<br/>escrita en cuero.</h2>",
-            "width": "fit-content",
-            "max_width": "narrow",
-            "alignment": "left",
-            "type_preset": "h2",
-            "font": "var(--font-body--family)",
-            "font_size": "1rem",
-            "line_height": "normal",
-            "letter_spacing": "normal",
-            "case": "none",
-            "wrap": "pretty",
-            "text_color": "",
-            "background": false,
-            "background_color": "#00000026",
-            "corner_radius": 0,
-            "padding-block-start": 0,
-            "padding-block-end": 0,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
-          },
-          "blocks": {}
-        },
-        "text_hero_subtitle": {
-          "type": "text",
-          "name": "Subtítulo",
-          "settings": {
-            "text": "<p>Cuero genuino, hecho a mano en Colombia y personalizado con tus iniciales. Diseñado para envejecer contigo.</p>",
-            "width": "fit-content",
-            "max_width": "narrow",
-            "alignment": "left",
-            "type_preset": "paragraph",
-            "font": "var(--font-body--family)",
-            "font_size": "1.125rem",
-            "line_height": "normal",
-            "letter_spacing": "normal",
-            "case": "none",
-            "wrap": "pretty",
-            "text_color": "",
-            "background": false,
-            "background_color": "#00000026",
-            "corner_radius": 0,
-            "padding-block-start": 0,
-            "padding-block-end": 16,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
-          },
-          "blocks": {}
-        },
-        "button_hero_cta": {
-          "type": "button",
-          "name": "Botón CTA",
-          "settings": {
-            "label": "Personaliza el tuyo",
-            "link": "/products/funda-cuero-genuino",
-            "open_in_new_tab": false,
-            "style_class": "button",
-            "custom_button_background": "{{ settings.color_palette.foreground }}",
-            "custom_button_text": "{{ settings.color_palette.background }}",
-            "custom_button_border": "{{ settings.color_palette.background }}",
-            "link_text_color": "",
-            "width": "fit-content",
-            "custom_width": 100,
-            "width_mobile": "fit-content",
-            "custom_width_mobile": 100
-          },
-          "blocks": {}
-        }
-      },
-      "block_order": [
-        "text_kfVmdT",
-        "text_hero_subtitle",
-        "button_hero_cta"
-      ],
-      "name": "t:names.heading",
+      "type": "custom-liquid",
+      "name": "Hero video (LETTERS)",
       "settings": {
-        "content_direction": "column",
-        "vertical_on_mobile": true,
-        "horizontal_alignment": "flex-start",
-        "vertical_alignment": "center",
-        "align_baseline": false,
-        "horizontal_alignment_flex_direction_column": "flex-start",
-        "vertical_alignment_flex_direction_column": "center",
-        "gap": 12,
-        "section_width": "page-width",
-        "section_height": "",
-        "section_height_custom": 50,
-        "background_media": "none",
-        "background_color": "{{ settings.color_palette.background }}",
-        "video_position": "cover",
-        "background_image_position": "cover",
-        "toggle_overlay": false,
-        "overlay_color": "#00000026",
-        "overlay_style": "solid",
-        "gradient_direction": "to top",
-        "border": "none",
-        "border_width": 1,
-        "border_opacity": 100,
-        "border_color": "",
-        "border_radius": 0,
-        "padding-block-start": 48,
-        "padding-block-end": 48
+        "custom_liquid": "<div class=\"lhv\">\n  <video class=\"lhv__media\" autoplay muted loop playsinline preload=\"metadata\" poster=\"{{ 'letters-hero-poster.jpg' | asset_url }}\">\n    <source src=\"{{ 'letters-hero.webm' | asset_url }}\" type=\"video/webm\">\n    <source src=\"{{ 'letters-hero.mp4' | asset_url }}\" type=\"video/mp4\">\n  </video>\n  <div class=\"lhv__overlay\"></div>\n  <div class=\"lhv__content\">\n    <h1 class=\"lhv__title\">Tu historia,<br>escrita en cuero.</h1>\n    <p class=\"lhv__subtitle\">Cuero genuino, hecho a mano en Colombia y personalizado con tus iniciales. Diseñado para envejecer contigo.</p>\n    <a class=\"lhv__cta\" href=\"/products/funda-cuero-genuino\">Personaliza el tuyo</a>\n  </div>\n</div>\n<style>\n  .lhv{position:relative;isolation:isolate;overflow:hidden;display:flex;align-items:center;min-height:min(82vh,760px);background:#000}\n  .lhv__media{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2}\n  .lhv__overlay{position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(0,0,0,.93) 0%,rgba(0,0,0,.8) 42%,rgba(0,0,0,.42) 72%,rgba(0,0,0,.62) 100%)}\n  .lhv__content{width:100%;max-width:1400px;margin:0 auto;padding:clamp(28px,6vw,80px) clamp(16px,5vw,64px)}\n  .lhv__title{margin:0 0 clamp(12px,2vw,20px);max-width:20ch;font-family:var(--font-heading--family);text-transform:uppercase;font-size:clamp(1.75rem,5.4vw,4.6rem);line-height:1.06;letter-spacing:.01em;color:var(--color-foreground)}\n  .lhv__subtitle{margin:0 0 clamp(22px,3vw,34px);max-width:46ch;font-family:var(--font-body--family);font-size:clamp(1rem,1.3vw,1.18rem);line-height:1.65;color:var(--color-foreground);opacity:.92}\n  .lhv__cta{display:inline-block;padding:16px 34px;border-radius:999px;background:var(--color-foreground);color:var(--color-background);font-family:var(--font-body--family);font-weight:600;letter-spacing:.02em;text-decoration:none;transition:transform .25s ease,opacity .25s ease}\n  .lhv__cta:hover{transform:translateY(-2px);opacity:.92}\n  .lhv__cta:focus-visible{outline:2px solid var(--color-foreground);outline-offset:3px}\n  @media (max-width:749px){\n    .lhv{min-height:min(74vh,620px)}\n    .lhv__overlay{background:linear-gradient(180deg,rgba(0,0,0,.88) 0%,rgba(0,0,0,.7) 52%,rgba(0,0,0,.92) 100%)}\n    .lhv__title{max-width:100%}\n  }\n  @media (prefers-reduced-motion:reduce){\n    .lhv__media{display:none}\n    .lhv{background:url('{{ 'letters-hero-poster.jpg' | asset_url }}') center/cover no-repeat}\n  }\n</style>",
+        "background_color": "",
+        "section_width": "full-width",
+        "padding-block-start": 0,
+        "padding-block-end": 0
       }
     },
     "section_trust_letters": {
