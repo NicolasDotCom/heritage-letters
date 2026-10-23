@@ -241,7 +241,7 @@
               "type": "text",
               "name": "t:names.text",
               "settings": {
-                "text": "<p>★ Más vendido</p>",
+                "text": "<p>Destacado</p>",
                 "width": "100%",
                 "max_width": "normal",
                 "alignment": "left",
@@ -307,7 +307,7 @@
                   "type": "text",
                   "name": "t:names.heading",
                   "settings": {
-                    "text": "<h2>La funda que se convierte en reliquia</h2>",
+                    "text": "<h2>Nuestro producto insignia</h2>",
                     "width": "fit-content",
                     "max_width": "normal",
                     "alignment": "left",
@@ -332,7 +332,7 @@
                 "text_WpXhQM": {
                   "type": "text",
                   "settings": {
-                    "text": "<p>Cuero Full Grain colombiano que desarrolla una pátina única con el tiempo. Cada funda se hace a medida para tu dispositivo y se graba con tus iniciales. No es solo un accesorio — es un legado.</p>",
+                    "text": "<p>Hecho con cuidado y amado por nuestros clientes, este bestseller supera todas las expectativas.</p>",
                     "width": "100%",
                     "max_width": "normal",
                     "alignment": "left",
@@ -404,7 +404,7 @@
                   "type": "button",
                   "name": "t:names.button",
                   "settings": {
-                    "label": "Comprar ahora",
+                    "label": "Shop now",
                     "link": "shopify://collections/all",
                     "open_in_new_tab": false,
                     "style_class": "button-custom",
@@ -423,7 +423,7 @@
                   "type": "button",
                   "name": "t:names.button",
                   "settings": {
-                    "label": "Ver colección",
+                    "label": "Explore the collection",
                     "link": "",
                     "open_in_new_tab": false,
                     "style_class": "button-custom",
@@ -731,6 +731,7 @@
           "static": true,
           "settings": {
             "media_type": "image",
+            "image": "shopify://shop_images/capitulo_1_banner.png",
             "link": "",
             "video_loop": true,
             "video_autoplay": false,
@@ -752,7 +753,7 @@
               "type": "text",
               "name": "t:names.text",
               "settings": {
-                "text": "<p>✦ Nuevo lanzamiento</p>",
+                "text": "<p>Destacado</p>",
                 "width": "100%",
                 "max_width": "normal",
                 "alignment": "left",
@@ -818,7 +819,7 @@
                   "type": "text",
                   "name": "t:names.heading",
                   "settings": {
-                    "text": "<p>El perfume que nació del cuero</p>",
+                    "text": "<p>Nuevo lanzamiento</p>",
                     "width": "fit-content",
                     "max_width": "normal",
                     "alignment": "left",
@@ -843,7 +844,7 @@
                 "text_DNm6Az": {
                   "type": "text",
                   "settings": {
-                    "text": "<p>Una fragancia artesanal inspirada en el aroma del cuero curtido a mano. Notas cálidas de cuero, cedro y ámbar que te acompañan todo el día. Edición limitada — producción de solo 200 unidades.</p>",
+                    "text": "<p>Te presentamos nuestro último lanzamiento, creado especialmente para la temporada. ¡Compra ahora antes de que se agote!</p>",
                     "width": "100%",
                     "max_width": "normal",
                     "alignment": "left",
@@ -915,7 +916,7 @@
                   "type": "button",
                   "name": "t:names.button",
                   "settings": {
-                    "label": "Descubrir ahora",
+                    "label": "Shop now",
                     "link": "shopify://collections/all",
                     "open_in_new_tab": false,
                     "style_class": "button",
@@ -934,7 +935,7 @@
                   "type": "button",
                   "name": "t:names.button",
                   "settings": {
-                    "label": "Ver todos los productos",
+                    "label": "Explore the collection",
                     "link": "",
                     "open_in_new_tab": false,
                     "style_class": "button-custom",
