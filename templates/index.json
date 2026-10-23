@@ -121,7 +121,6 @@
     },
     "section_trust_letters": {
       "type": "custom-liquid",
-      "blocks": {},
       "settings": {
         "custom_liquid": "{% render 'letters-trust-badges' %}",
         "background_color": "",

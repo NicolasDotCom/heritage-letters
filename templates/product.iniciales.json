@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "product-information": {
@@ -910,7 +919,7 @@
               "type": "disclosures",
               "name": "t:names.disclosures",
               "settings": {
-                "heading": "Preguntas frecuentes",
+                "heading": "Disclosures",
                 "heading_preset": "h5",
                 "open_by_default": false,
                 "icon": "caret",
@@ -923,7 +932,41 @@
                 "padding-inline-start": 0,
                 "padding-inline-end": 10
               },
-              "blocks": {
+              "blocks": {}
+            },
+                "faq_title": {
+                  "type": "text",
+                  "name": "FAQ",
+                  "settings": {
+                    "text": "<h3>Preguntas frecuentes</h3>",
+                    "width": "100%",
+                    "max_width": "normal",
+                    "alignment": "left",
+                    "type_preset": "h3",
+                    "font": "var(--font-body--family)",
+                    "font_size": "1rem",
+                    "line_height": "normal",
+                    "letter_spacing": "normal",
+                    "case": "none",
+                    "wrap": "pretty",
+                    "background": false,
+                    "background_color": "#00000026",
+                    "corner_radius": 0,
+                    "padding-block-start": 32,
+                    "padding-block-end": 4,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {}
+                },
+                "faq_accordion": {
+                  "type": "accordion",
+                  "name": "Preguntas frecuentes",
+                  "settings": {
+                    "icon": "caret",
+                    "dividers": true
+                  },
+                  "blocks": {
                 "faq_tiempos": {
                   "type": "_accordion-row",
                   "settings": {
@@ -1019,19 +1062,21 @@
                   },
                   "block_order": ["faq_garantia_text"]
                 }
-              },
-              "block_order": [
-                "faq_tiempos",
-                "faq_iniciales",
-                "faq_cuidado",
-                "faq_envios",
-                "faq_garantia"
-              ]
-            }
+                  },
+                  "block_order": [
+                  "faq_tiempos",
+                  "faq_iniciales",
+                  "faq_cuidado",
+                  "faq_envios",
+                  "faq_garantia"
+                  ]
+                }
           },
           "block_order": [
             "group_J87VfC",
-            "disclosures_n3qKam"
+            "disclosures_n3qKam",
+            "faq_title",
+            "faq_accordion"
           ]
         }
       },
