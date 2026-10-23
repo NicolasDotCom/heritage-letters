@@ -3,6 +3,14 @@
   Se ubican debajo de la galería de medios del producto para maximizar credibilidad y equilibrar el diseño.
 {%- enddoc -%}
 
+{%- comment -%} Indicador de urgencia / stock limitado {%- endcomment -%}
+<div class="letters-stock-urgency" id="letters-stock-urgency" aria-live="polite">
+  <span class="letters-stock-urgency__dot"></span>
+  <span class="letters-stock-urgency__text">
+    <strong>Alta demanda:</strong> Quedan pocas unidades disponibles. Producción artesanal limitada.
+  </span>
+</div>
+
 <div class="letters-trust-badges">
   <div class="letters-trust-badge">
     <div class="letters-trust-badge__icon">
@@ -13,7 +21,7 @@
     </div>
     <div class="letters-trust-badge__content">
       <h4 class="letters-trust-badge__title">Garantía de 2 Años</h4>
-      <p class="letters-trust-badge__desc">En materiales y costuras de por vida.</p>
+      <p class="letters-trust-badge__desc">Materiales y costuras respaldadas.</p>
     </div>
   </div>
 
@@ -27,8 +35,8 @@
       </svg>
     </div>
     <div class="letters-trust-badge__content">
-      <h4 class="letters-trust-badge__title">Cuero Genuino Full Grain</h4>
-      <p class="letters-trust-badge__desc">Pátina natural, hecho a mano en Colombia.</p>
+      <h4 class="letters-trust-badge__title">Cuero Full Grain</h4>
+      <p class="letters-trust-badge__desc">Pátina única. Hecho a mano en Colombia.</p>
     </div>
   </div>
 
@@ -43,8 +51,8 @@
       </svg>
     </div>
     <div class="letters-trust-badge__content">
-      <h4 class="letters-trust-badge__title">Empaque de Lujo Incluido</h4>
-      <p class="letters-trust-badge__desc">Bolsa de tela + tarjeta con nombre.</p>
+      <h4 class="letters-trust-badge__title">Empaque de Lujo</h4>
+      <p class="letters-trust-badge__desc">Bolsa de tela + tarjeta personalizada.</p>
     </div>
   </div>
 
@@ -59,7 +67,7 @@
     </div>
     <div class="letters-trust-badge__content">
       <h4 class="letters-trust-badge__title">Envíos a Todo el País</h4>
-      <p class="letters-trust-badge__desc">Envíos asegurados y pago contra entrega.</p>
+      <p class="letters-trust-badge__desc">Asegurados + pago contra entrega.</p>
     </div>
   </div>
 </div>
@@ -75,6 +83,48 @@
     }
   }
 
+  /* === INDICADOR DE URGENCIA === */
+  .letters-stock-urgency {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: rgb(220 60 60 / 0.08);
+    border: 1px solid rgb(220 60 60 / 0.25);
+    border-radius: 8px;
+    padding: 10px 14px;
+    margin-bottom: 16px;
+    font-size: 0.78rem;
+    color: rgb(255 180 180 / 0.9);
+    line-height: 1.4;
+  }
+
+  .letters-stock-urgency__dot {
+    flex-shrink: 0;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #ff6b6b;
+    box-shadow: 0 0 0 0 rgb(255 107 107 / 0.6);
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .letters-stock-urgency__dot {
+      animation: stock-pulse 2s ease-in-out infinite;
+    }
+
+    @keyframes stock-pulse {
+      0%   { box-shadow: 0 0 0 0 rgb(255 107 107 / 0.5); }
+      70%  { box-shadow: 0 0 0 7px rgb(255 107 107 / 0); }
+      100% { box-shadow: 0 0 0 0 rgb(255 107 107 / 0); }
+    }
+  }
+
+  .letters-stock-urgency__text strong {
+    color: #ff8f8f;
+    font-weight: 600;
+  }
+
+  /* === TRUST BADGES === */
   .letters-trust-badges {
     display: grid;
     grid-template-columns: repeat(2, 1fr);

@@ -11,6 +11,65 @@
   "type": "header",
   "name": "t:names.header",
   "sections": {
+    "announcements": {
+      "type": "header-announcements",
+      "blocks": {
+        "announcement_envio": {
+          "type": "_announcement",
+          "settings": {
+            "text": "🚚 <strong>Envío gratis</strong> en pedidos superiores a $250.000 COP — Pago contra entrega disponible",
+            "link": "/products/funda-cuero-genuino",
+            "font": "var(--font-body--family)",
+            "font_size": "0.8125rem",
+            "weight": "",
+            "case": "none",
+            "letter_spacing": "normal",
+            "text_color": ""
+          },
+          "blocks": {}
+        },
+        "announcement_garantia": {
+          "type": "_announcement",
+          "settings": {
+            "text": "🛡️ <strong>Garantía de 2 años</strong> en materiales y costuras — Cuero Full Grain colombiano",
+            "link": "",
+            "font": "var(--font-body--family)",
+            "font_size": "0.8125rem",
+            "weight": "",
+            "case": "none",
+            "letter_spacing": "normal",
+            "text_color": ""
+          },
+          "blocks": {}
+        },
+        "announcement_artesanal": {
+          "type": "_announcement",
+          "settings": {
+            "text": "✦ Producción <strong>artesanal limitada</strong> — Cada pieza tarda 5 días en hacerse a mano",
+            "link": "",
+            "font": "var(--font-body--family)",
+            "font_size": "0.8125rem",
+            "weight": "",
+            "case": "none",
+            "letter_spacing": "normal",
+            "text_color": ""
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "announcement_envio",
+        "announcement_garantia",
+        "announcement_artesanal"
+      ],
+      "settings": {
+        "speed": 4,
+        "section_width": "full-width",
+        "divider_width": 0,
+        "padding-block-start": 10,
+        "padding-block-end": 10
+      }
+    },
     "header_section": {
       "type": "header",
       "blocks": {
@@ -73,6 +132,7 @@
     }
   },
   "order": [
+    "announcements",
     "header_section"
   ]
 }

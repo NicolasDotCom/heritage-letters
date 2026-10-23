@@ -5,6 +5,7 @@
   rel="noopener noreferrer"
   aria-label="{{ 'accessibility.whatsapp_contact' | t | escape }}"
 >
+  <span class="wa-float__tooltip" aria-hidden="true">¿Tienes dudas?<br><strong>¡Escríbenos!</strong></span>
   <svg class="wa-float__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 60" aria-hidden="true">
     <circle cx="30" cy="30" r="28" style="fill: var(--color-background); stroke: var(--color-foreground)" stroke-width="2.2"/>
     <path d="M30 10.5C19.23 10.5 10.5 19.23 10.5 30c0 3.44.93 6.66 2.55 9.44L10.5 49.5l10.35-2.52A19.34 19.34 0 0030 49.5c10.77 0 19.5-8.73 19.5-19.5S40.77 10.5 30 10.5z" fill="none" style="stroke: var(--color-foreground)" stroke-width="2" stroke-linejoin="round"/>
@@ -103,6 +104,51 @@
       100% {
         opacity: 0;
       }
+    }
+  }
+
+  /* === TOOLTIP === */
+  .wa-float__tooltip {
+    display: none;
+    position: absolute;
+    right: calc(100% + 12px);
+    bottom: 50%;
+    transform: translateY(50%) translateX(8px);
+    background: rgba(10, 10, 10, 0.92);
+    border: 1px solid rgb(var(--color-foreground-rgb, 248 224 181) / 0.25);
+    color: var(--color-foreground, #F8E0B5);
+    font-size: 0.75rem;
+    line-height: 1.4;
+    padding: 8px 12px;
+    border-radius: 8px;
+    white-space: nowrap;
+    pointer-events: none;
+    opacity: 0;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.4);
+    backdrop-filter: blur(8px);
+  }
+
+  .wa-float__tooltip::after {
+    content: '';
+    position: absolute;
+    right: -7px;
+    top: 50%;
+    transform: translateY(-50%);
+    border: 6px solid transparent;
+    border-left-color: rgba(10, 10, 10, 0.92);
+    border-right: 0;
+  }
+
+  @media screen and (min-width: 750px) {
+    .wa-float__tooltip {
+      display: block;
+    }
+
+    .wa-float:hover .wa-float__tooltip,
+    .wa-float:focus-visible .wa-float__tooltip {
+      opacity: 1;
+      transform: translateY(50%) translateX(0);
+      transition: opacity 0.25s ease, transform 0.25s ease;
     }
   }
 </style>
