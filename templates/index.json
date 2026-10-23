@@ -731,6 +731,7 @@
           "static": true,
           "settings": {
             "media_type": "image",
+            "image": "shopify://shop_images/capitulo_1_banner.png",
             "link": "",
             "video_loop": true,
             "video_autoplay": false,
