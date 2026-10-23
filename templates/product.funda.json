@@ -228,6 +228,14 @@
                   },
                   "blocks": {}
                 },
+                "payment_methods": {
+                  "type": "custom-liquid",
+                  "name": "Medios de pago",
+                  "settings": {
+                    "custom_liquid": "{% render 'letters-payment-methods' %}"
+                  },
+                  "blocks": {}
+                },
                 "buy_buttons_64taHw": {
                   "type": "buy-buttons",
                   "settings": {
@@ -933,6 +941,7 @@
                 "custom_property_device",
                 "custom_property_initials",
                 "buy_buttons_64taHw",
+                "payment_methods",
                 "whatsapp_help",
                 "text_wnQCmf",
                 "group_JK8NUb",

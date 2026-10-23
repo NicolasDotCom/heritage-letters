@@ -126,6 +126,11 @@ Checklist visual en preview (desktop + móvil):
 
 **Footer en español neutro** (`sections/footer-group.json`): "About us" → "Nosotros", "Shop" → "Tienda", "Support" → "Ayuda", "Our story" → "Nuestra historia", la descripción del bloque Nosotros lleva el manifiesto de marca ("LETTERS nace como una resistencia silenciosa ante el ruido…") y `show_powered_by: false` elimina el "Tecnología de Shopify" del copyright.
 
+**Banner "Alta demanda" + footer**: el indicador de urgencia de `snippets/letters-trust-badges.liquid` pasó de tonos rojos a la paleta de marca (`--color-foreground`), y el manifiesto del footer bajó de `type_preset: h4` a `paragraph` (en móvil se renderizaba descomunal).
+
+**Medios de pago (Mercado Pago)** (`snippets/letters-payment-methods.liquid`): fila de confianza con logos de tarjeta (Visa, Mastercard, Amex, Diners vía `payment_type_svg_tag`, sobre píldoras blancas para que se lean sobre el tema oscuro) y píldoras de texto para los métodos locales (PSE, Nequi, Daviplata, Efecty, Mercado Crédito, Contra entrega). Se renderiza en la PDP (bloque `custom-liquid` después de `buy_buttons` en las 3 plantillas de producto) y en el footer (bloque `group` con `custom-liquid` dentro, porque `footer-utilities` solo acepta `footer-copyright`, `footer-policy-list` y `social-links`).
+> `theme check` reporta `OrphanedSnippet` sobre este snippet: es un falso positivo (se renderiza desde bloques JSON, que Theme Check no analiza). Mismo caso que `chat-drawer.liquid`.
+
 **Fase 1 — Conversión** (optimización de la tienda):
 - **Social sharing**: nuevo setting `social_share_image` (Theme settings → Logo y favicon) + fallback de `og:image` en `snippets/meta-tags.liquid` (antes solo usaba `page_image`, vacío en home/colecciones). `og:description` ya no cae a `shop.name`: usa la tagline `content.brand_tagline` (presente en los 34 idiomas: es/en con copy propio, resto con fallback inglés).
 - **CTA WhatsApp en PDP**: bloque `letters-whatsapp-cta` añadido a `templates/product.{funda,iniciales}.json` (mensaje pre-rellenado distinto para funda y para personalización).

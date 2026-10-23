@@ -82,8 +82,9 @@
                 "width": "100%",
                 "max_width": "narrow",
                 "alignment": "left",
-                "type_preset": "h4",
+                "type_preset": "paragraph",
                 "font": "var(--font-body--family)",
+                "font_size": "1rem",
                 "line_height": "normal",
                 "letter_spacing": "normal",
                 "case": "none",
@@ -203,11 +204,36 @@
             "menu_kJtfJ8",
             "menu_wjn6YT"
           ]
+        },
+        "group_payments": {
+          "type": "group",
+          "name": "Medios de pago",
+          "settings": {
+            "content_direction": "row",
+            "vertical_alignment": "center",
+            "gap": 12,
+            "width": "fill",
+            "padding-block-start": 8,
+            "padding-block-end": 8
+          },
+          "blocks": {
+            "payment_methods_liquid": {
+              "type": "custom-liquid",
+              "name": "Medios de pago",
+              "settings": {
+                "custom_liquid": "{% render 'letters-payment-methods' %}"
+              }
+            }
+          },
+          "block_order": [
+            "payment_methods_liquid"
+          ]
         }
       },
       "block_order": [
         "group_dxfQMA",
-        "group_x4FxXe"
+        "group_x4FxXe",
+        "group_payments"
       ],
       "name": "t:names.footer",
       "settings": {

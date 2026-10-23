@@ -1,0 +1,103 @@
+{%- doc -%}
+  Medios de pago LETTERS Colombia (pasarela Mercado Pago).
+  Se muestra en la PDP y en el footer para reducir la ansiedad antes de comprar.
+  Los logos de tarjeta usan los SVG oficiales de Shopify (payment_type_svg_tag);
+  los métodos locales van como píldoras de texto.
+{%- enddoc -%}
+
+<div class="letters-payments">
+  <p class="letters-payments__title">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <rect x="4" y="11" width="16" height="10" rx="2"></rect>
+      <path d="M8 11V7a4 4 0 0 1 8 0v4"></path>
+    </svg>
+    <span>Pago seguro con <strong>Mercado Pago</strong></span>
+  </p>
+  <ul class="letters-payments__list" role="list">
+    <li class="letters-payments__item letters-payments__item--card">{{ 'visa' | payment_type_svg_tag: class: 'letters-payments__logo' }}</li>
+    <li class="letters-payments__item letters-payments__item--card">{{ 'master' | payment_type_svg_tag: class: 'letters-payments__logo' }}</li>
+    <li class="letters-payments__item letters-payments__item--card">{{ 'american_express' | payment_type_svg_tag: class: 'letters-payments__logo' }}</li>
+    <li class="letters-payments__item letters-payments__item--card">{{ 'diners_club' | payment_type_svg_tag: class: 'letters-payments__logo' }}</li>
+    <li class="letters-payments__item">PSE</li>
+    <li class="letters-payments__item">Nequi</li>
+    <li class="letters-payments__item">Daviplata</li>
+    <li class="letters-payments__item">Efecty</li>
+    <li class="letters-payments__item">Mercado Crédito</li>
+    <li class="letters-payments__item">Contra entrega</li>
+  </ul>
+</div>
+
+{% stylesheet %}
+  .letters-payments {
+    margin-block-start: var(--padding-md);
+    width: 100%;
+  }
+
+  .letters-payments__title {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 0 0 10px;
+    font-size: var(--font-paragraph-small--size);
+    color: rgb(var(--color-foreground-rgb) / 0.85);
+  }
+
+  .letters-payments__title strong {
+    color: var(--color-foreground);
+    font-weight: 600;
+  }
+
+  .letters-payments__list {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .letters-payments__item {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 30px;
+    padding: 4px 12px;
+    border: 1px solid rgb(var(--color-foreground-rgb) / 0.2);
+    border-radius: 999px;
+    background: rgb(var(--color-foreground-rgb) / 0.05);
+    color: rgb(var(--color-foreground-rgb) / 0.88);
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    line-height: 1;
+    white-space: nowrap;
+  }
+
+  /* Logos de tarjeta sobre fondo blanco para que se lean sobre el tema oscuro. */
+  .letters-payments__item--card {
+    padding: 6px 10px;
+    background: #ffffff;
+    border-color: transparent;
+    border-radius: 6px;
+  }
+
+  .letters-payments__logo {
+    display: block;
+    height: 16px;
+    width: auto;
+  }
+
+  @media screen and (max-width: 749px) {
+    .letters-payments__item {
+      min-height: 28px;
+      font-size: 0.68rem;
+      padding: 4px 10px;
+    }
+
+    .letters-payments__logo {
+      height: 14px;
+    }
+  }
+{% endstylesheet %}
