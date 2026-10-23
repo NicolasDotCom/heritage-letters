@@ -59,6 +59,9 @@
   # la imagen social configurada en el tema (settings.social_share_image).
   assign og_image = page_image | default: settings.social_share_image
 -%}
+{%- comment -%} Resource hints: acelera el handshake con el CDN y las fuentes. {%- endcomment -%}
+<link rel="preconnect" href="https://cdn.shopify.com" crossorigin>
+<link rel="preconnect" href="https://fonts.shopifycdn.com" crossorigin>
 {%- if og_image -%}
   <meta
     property="og:image"

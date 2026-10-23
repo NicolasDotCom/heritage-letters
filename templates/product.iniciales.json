@@ -943,6 +943,14 @@
               },
               "blocks": {}
             },
+                "reviews_liquid": {
+                  "type": "custom-liquid",
+                  "name": "Reseñas",
+                  "settings": {
+                    "custom_liquid": "{% render 'letters-reviews' %}"
+                  },
+                  "blocks": {}
+                },
                 "faq_title": {
                   "type": "text",
                   "name": "FAQ",
@@ -1085,7 +1093,8 @@
             "group_J87VfC",
             "disclosures_n3qKam",
             "faq_title",
-            "faq_accordion"
+            "faq_accordion",
+            "reviews_liquid"
           ]
         }
       },

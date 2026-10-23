@@ -1,0 +1,49 @@
+{%- doc -%}
+  Datos estructurados FAQPage para las PDP de LETTERS Colombia.
+
+  Deben coincidir con las preguntas visibles del acordeón de la página: Google
+  penaliza el contenido estructurado que no se muestra en el HTML. Si editas el
+  FAQ en el editor, actualiza este snippet para que coincidan.
+{%- enddoc -%}
+
+{%- case template.suffix -%}
+  {%- when 'funda' -%}
+    {%- capture faq_json -%}
+      [
+        {"@type":"Question","name":"¿Cuánto tarda mi pedido?","acceptedAnswer":{"@type":"Answer","text":"Cada pieza se hace a mano en 5 días hábiles. Después el envío tarda entre 2 y 5 días según tu ciudad. Te avisamos por WhatsApp cuando tu pedido sale de taller."}},
+        {"@type":"Question","name":"¿Cómo envío los datos de mi dispositivo?","acceptedAnswer":{"@type":"Answer","text":"En el paso de compra encontrarás el campo Datos del dispositivo: escríbenos marca, modelo y pulgadas. Si es una tablet, indícanos si tienes teclado y lápiz. Cada funda se hace a la medida exacta."}},
+        {"@type":"Question","name":"¿Puedo elegir el color del hilo y mis iniciales?","acceptedAnswer":{"@type":"Answer","text":"Sí. Con bordado eliges entre 32 colores de hilo y grabas hasta 3 iniciales. Con repujado, las iniciales van en relieve sobre cuero liso."}},
+        {"@type":"Question","name":"¿Cómo cuido el cuero?","acceptedAnswer":{"@type":"Answer","text":"Límpialo con un paño seco y evita la exposición prolongada al agua. El cuero Full Grain mejora con el uso: su pátina es parte de su historia."}},
+        {"@type":"Question","name":"¿Cómo son los envíos?","acceptedAnswer":{"@type":"Answer","text":"Envío gratis a todo Colombia en todos los pedidos, asegurado y con seguimiento. Tu pedido viaja en bolsa de tela con tarjeta personalizada."}},
+        {"@type":"Question","name":"¿Qué cubre la garantía?","acceptedAnswer":{"@type":"Answer","text":"2 años sobre materiales y costuras. Si algo falla, escríbenos al WhatsApp y lo resolvemos."}}
+      ]
+    {%- endcapture -%}
+  {%- when 'iniciales' -%}
+    {%- capture faq_json -%}
+      [
+        {"@type":"Question","name":"¿Cuánto tarda mi pedido?","acceptedAnswer":{"@type":"Answer","text":"Cada pieza se hace a mano en 5 días hábiles. Después el envío tarda entre 2 y 5 días según tu ciudad. Te avisamos por WhatsApp cuando tu pedido sale de taller."}},
+        {"@type":"Question","name":"¿Cómo personalizo con mis iniciales?","acceptedAnswer":{"@type":"Answer","text":"Al comprar verás el campo Iniciales personalizadas: escribe hasta 3 letras y elige bordado o repujado. Las hacemos a mano, una a una."}},
+        {"@type":"Question","name":"¿Cómo cuido el cuero?","acceptedAnswer":{"@type":"Answer","text":"Límpialo con un paño seco y evita la exposición prolongada al agua. El cuero Full Grain mejora con el uso: su pátina es parte de su historia."}},
+        {"@type":"Question","name":"¿Cómo son los envíos?","acceptedAnswer":{"@type":"Answer","text":"Envío gratis a todo Colombia en todos los pedidos, asegurado y con seguimiento. Tu pedido viaja en bolsa de tela con tarjeta personalizada."}},
+        {"@type":"Question","name":"¿Qué cubre la garantía?","acceptedAnswer":{"@type":"Answer","text":"2 años sobre materiales y costuras. Si algo falla, escríbenos al WhatsApp y lo resolvemos."}}
+      ]
+    {%- endcapture -%}
+  {%- else -%}
+    {%- capture faq_json -%}
+      [
+        {"@type":"Question","name":"¿Cuánto tarda mi pedido?","acceptedAnswer":{"@type":"Answer","text":"Cada pieza se hace a mano en 5 días hábiles. Después el envío tarda entre 2 y 5 días según tu ciudad. Te avisamos por WhatsApp cuando tu pedido sale de taller."}},
+        {"@type":"Question","name":"¿Puedo personalizar mi pedido?","acceptedAnswer":{"@type":"Answer","text":"Varias de nuestras piezas se personalizan con hasta 3 iniciales en bordado o repujado. Escríbenos al WhatsApp y te ayudamos a elegir."}},
+        {"@type":"Question","name":"¿Cómo cuido mi producto?","acceptedAnswer":{"@type":"Answer","text":"Cada pedido viaja con su tarjeta de cuidados. El cuero Full Grain mejora con el uso: su pátina es parte de su historia."}},
+        {"@type":"Question","name":"¿Cómo son los envíos?","acceptedAnswer":{"@type":"Answer","text":"Envío gratis a todo Colombia en todos los pedidos, asegurado y con seguimiento."}},
+        {"@type":"Question","name":"¿Qué cubre la garantía?","acceptedAnswer":{"@type":"Answer","text":"2 años sobre materiales y costuras. Si algo falla, escríbenos al WhatsApp y lo resolvemos."}}
+      ]
+    {%- endcapture -%}
+{%- endcase -%}
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": {{ faq_json | strip }}
+  }
+</script>

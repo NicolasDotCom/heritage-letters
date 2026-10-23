@@ -1,0 +1,120 @@
+{%- doc -%}
+  Reseñas de clientes LETTERS Colombia.
+
+  ⚠️ IMPORTANTE: las reseñas de abajo son CONTENIDO DE MUESTRA (placeholders)
+  para validar el diseño. Deben reemplazarse por reseñas reales de clientes lo
+  antes posible: publicar opiniones inventadas como si fueran reales es
+  publicidad engañosa (Estatuto del Consumidor, Ley 1480 de 2011, art. 53) y
+  está prohibido por las políticas de Google y Meta.
+
+  Para reemplazarlas: edita este snippet (o mejor, conéctalo a un metafield/app
+  de reseñas como Judge.me) y quita la línea con data-sample="true".
+{%- enddoc -%}
+
+<section class="letters-reviews" aria-labelledby="letters-reviews-title">
+  <h3 class="letters-reviews__title" id="letters-reviews-title">La opinión de nuestros clientes</h3>
+
+  <ul class="letters-reviews__list" role="list" data-sample="true">
+    <li class="letters-review">
+      <div class="letters-review__stars" aria-label="5 de 5 estrellas">★★★★★</div>
+      <p class="letters-review__text">“La funda es preciosa: el cuero se siente increíble y mis iniciales quedaron perfectas. Llegó antes de lo esperado.”</p>
+      <p class="letters-review__author"><strong>Mariana G.</strong> · Medellín</p>
+    </li>
+
+    <li class="letters-review">
+      <div class="letters-review__stars" aria-label="5 de 5 estrellas">★★★★★</div>
+      <p class="letters-review__text">“Compré la funda para mi laptop y la calidad superó lo que esperaba. Poder elegir el color del hilo fue el detalle que la hizo única.”</p>
+      <p class="letters-review__author"><strong>Andrés R.</strong> · Bogotá</p>
+    </li>
+
+    <li class="letters-review">
+      <div class="letters-review__stars" aria-label="5 de 5 estrellas">★★★★★</div>
+      <p class="letters-review__text">“Perfecta para regalar. Vino en su bolsa de tela con la tarjeta personalizada y todo el mundo pregunta por ella.”</p>
+      <p class="letters-review__author"><strong>Camila P.</strong> · Cali</p>
+    </li>
+
+    <li class="letters-review">
+      <div class="letters-review__stars" aria-label="5 de 5 estrellas">★★★★★</div>
+      <p class="letters-review__text">“La atención por WhatsApp fue excelente, me ayudaron a elegir el cuero y el hilo. Se nota el trabajo artesanal.”</p>
+      <p class="letters-review__author"><strong>Valentina M.</strong> · Cartagena</p>
+    </li>
+
+    <li class="letters-review">
+      <div class="letters-review__stars" aria-label="5 de 5 estrellas">★★★★★</div>
+      <p class="letters-review__text">“Llevo unos meses con ella y el cuero ha mejorado con el uso. Justo lo que buscaba: una pieza que envejece contigo.”</p>
+      <p class="letters-review__author"><strong>Ricardo L.</strong> · Bucaramanga</p>
+    </li>
+
+    <li class="letters-review">
+      <div class="letters-review__stars" aria-label="5 de 5 estrellas">★★★★★</div>
+      <p class="letters-review__text">“Terminaciones impecables y la medida exacta para mi dispositivo. Sin duda volvería a comprar.”</p>
+      <p class="letters-review__author"><strong>Juliana T.</strong> · Barranquilla</p>
+    </li>
+  </ul>
+</section>
+
+{% stylesheet %}
+  .letters-reviews {
+    margin-block-start: var(--padding-2xl);
+    width: 100%;
+  }
+
+  .letters-reviews__title {
+    margin: 0 0 var(--padding-md);
+    font-family: var(--font-heading--family);
+    font-size: clamp(1.25rem, 2.4vw, 1.75rem);
+    line-height: 1.2;
+    color: var(--color-foreground);
+  }
+
+  .letters-reviews__list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--gap-md);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .letters-review {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: var(--padding-lg);
+    border: 1px solid rgb(var(--color-foreground-rgb) / 0.16);
+    border-radius: 12px;
+    background: rgb(var(--color-foreground-rgb) / 0.04);
+  }
+
+  .letters-review__stars {
+    color: var(--color-foreground);
+    letter-spacing: 2px;
+    line-height: 1;
+    font-size: 0.95rem;
+  }
+
+  .letters-review__text {
+    margin: 0;
+    font-size: var(--font-paragraph--size);
+    line-height: 1.6;
+    color: rgb(var(--color-foreground-rgb) / 0.92);
+    font-style: italic;
+  }
+
+  .letters-review__author {
+    margin: auto 0 0;
+    font-size: var(--font-paragraph-small--size);
+    color: rgb(var(--color-foreground-rgb) / 0.78);
+  }
+
+  .letters-review__author strong {
+    color: var(--color-foreground);
+    font-weight: 600;
+  }
+
+  @media screen and (max-width: 749px) {
+    .letters-reviews__list {
+      grid-template-columns: minmax(0, 1fr);
+    }
+  }
+{% endstylesheet %}
