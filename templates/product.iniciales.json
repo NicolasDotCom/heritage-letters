@@ -1036,7 +1036,7 @@
                 "faq_envios": {
                   "type": "_accordion-row",
                   "settings": {
-                    "heading": "¿Hacen envíos y hay pago contra entrega?",
+                    "heading": "¿Cómo son los envíos?",
                     "open_by_default": false,
                     "icon": "none",
                     "width": 20
@@ -1045,7 +1045,7 @@
                     "faq_envios_text": {
                       "type": "text",
                       "settings": {
-                        "text": "<p>Enviamos a todo Colombia. Envío gratis en pedidos superiores a $250.000 COP y pago contra entrega disponible. Tu pedido viaja en bolsa de tela con tarjeta personalizada.</p>",
+                        "text": "<p>Envío gratis a todo Colombia en todos los pedidos, asegurado y con seguimiento. Tu pedido viaja en bolsa de tela con tarjeta personalizada.</p>",
                         "width": "100%"
                       }
                     }

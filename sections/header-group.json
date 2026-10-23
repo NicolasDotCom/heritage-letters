@@ -17,7 +17,7 @@
         "announcement_envio": {
           "type": "_announcement",
           "settings": {
-            "text": "🚚 <strong>Envío gratis</strong> en pedidos superiores a $250.000 COP — Pago contra entrega disponible",
+            "text": "🚚 <strong>Envío gratis</strong> a todo el país en todos los pedidos — Pagos seguros con Mercado Pago",
             "link": "/products/funda-cuero-genuino",
             "font": "var(--font-body--family)",
             "font_size": "0.8125rem",
