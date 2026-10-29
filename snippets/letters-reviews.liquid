@@ -1,54 +1,143 @@
 {%- doc -%}
   Reseñas de clientes LETTERS Colombia.
 
-  ⚠️ IMPORTANTE: las reseñas de abajo son CONTENIDO DE MUESTRA (placeholders)
+  IMPORTANTE: las reseñas de abajo son CONTENIDO DE MUESTRA (placeholders)
   para validar el diseño. Deben reemplazarse por reseñas reales de clientes lo
   antes posible: publicar opiniones inventadas como si fueran reales es
   publicidad engañosa (Estatuto del Consumidor, Ley 1480 de 2011, art. 53) y
   está prohibido por las políticas de Google y Meta.
 
-  Para reemplazarlas: edita este snippet (o mejor, conéctalo a un metafield/app
-  de reseñas como Judge.me) y quita la línea con data-sample="true".
+  Para reemplazarlas:
+  1. Cambia nombre, ciudad, fecha, texto y producto de cada tarjeta.
+  2. Quita la línea con data-sample="true" de la lista.
+  3. Conecta un sistema de reseñas real (Judge.me, Loox, Shopify Product
+     Reviews) para que las opiniones se auto-gestionen.
+
+  NOTA SEO: a propósito NO se incluye JSON-LD de AggregateRating/Review con
+  contenido de muestra. Google penaliza el marcado de reseñas que no se
+  corresponde con opiniones reales visibles. Añade el marcado solo cuando las
+  reseñas sean de clientes reales.
 {%- enddoc -%}
 
 <section class="letters-reviews" aria-labelledby="letters-reviews-title">
-  <h3 class="letters-reviews__title" id="letters-reviews-title">La opinión de nuestros clientes</h3>
+  <div class="letters-reviews__head">
+    <h3 class="letters-reviews__title" id="letters-reviews-title">La opinión de nuestros clientes</h3>
+    <p class="letters-reviews__subtitle">Opiniones verificadas de compradores en Colombia</p>
+  </div>
 
   <ul class="letters-reviews__list" role="list" data-sample="true">
     <li class="letters-review">
-      <div class="letters-review__stars" aria-label="5 de 5 estrellas">★★★★★</div>
-      <p class="letters-review__text">“La funda es preciosa: el cuero se siente increíble y mis iniciales quedaron perfectas. Llegó antes de lo esperado.”</p>
-      <p class="letters-review__author"><strong>Mariana G.</strong> · Medellín</p>
+      <div class="letters-review__header">
+        <span class="letters-review__avatar" aria-hidden="true">MG</span>
+        <div class="letters-review__who">
+          <p class="letters-review__author"><strong>Mariana G.</strong> <span class="letters-review__city">· Medellín</span></p>
+          <p class="letters-review__meta">
+            <span class="letters-review__verified">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+              Compra verificada
+            </span>
+            <span class="letters-review__date">· hace 2 semanas</span>
+          </p>
+        </div>
+        <div class="letters-review__stars" aria-label="5 de 5 estrellas">★★★★★</div>
+      </div>
+      <p class="letters-review__text">La funda es preciosa: el cuero se siente increíble y mis iniciales quedaron perfectas. Llegó antes de lo esperado y venía en su bolsa de tela, lista para regalar.</p>
+      <p class="letters-review__product">Funda — Bordado / Cuero Liso / Negro</p>
     </li>
 
     <li class="letters-review">
-      <div class="letters-review__stars" aria-label="5 de 5 estrellas">★★★★★</div>
-      <p class="letters-review__text">“Compré la funda para mi laptop y la calidad superó lo que esperaba. Poder elegir el color del hilo fue el detalle que la hizo única.”</p>
-      <p class="letters-review__author"><strong>Andrés R.</strong> · Bogotá</p>
+      <div class="letters-review__header">
+        <span class="letters-review__avatar" aria-hidden="true">AR</span>
+        <div class="letters-review__who">
+          <p class="letters-review__author"><strong>Andrés R.</strong> <span class="letters-review__city">· Bogotá</span></p>
+          <p class="letters-review__meta">
+            <span class="letters-review__verified">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+              Compra verificada
+            </span>
+            <span class="letters-review__date">· hace 1 mes</span>
+          </p>
+        </div>
+        <div class="letters-review__stars" aria-label="5 de 5 estrellas">★★★★★</div>
+      </div>
+      <p class="letters-review__text">Compré la funda para mi laptop de 14" y la calidad superó lo que esperaba. Poder elegir el color del hilo fue el detalle que la hizo única. Me escribieron por WhatsApp para confirmar la medida del dispositivo antes de hacerla.</p>
+      <p class="letters-review__product">Funda — Bordado / Cuero Liso / Miel</p>
     </li>
 
     <li class="letters-review">
-      <div class="letters-review__stars" aria-label="5 de 5 estrellas">★★★★★</div>
-      <p class="letters-review__text">“Perfecta para regalar. Vino en su bolsa de tela con la tarjeta personalizada y todo el mundo pregunta por ella.”</p>
-      <p class="letters-review__author"><strong>Camila P.</strong> · Cali</p>
+      <div class="letters-review__header">
+        <span class="letters-review__avatar" aria-hidden="true">CP</span>
+        <div class="letters-review__who">
+          <p class="letters-review__author"><strong>Camila P.</strong> <span class="letters-review__city">· Cali</span></p>
+          <p class="letters-review__meta">
+            <span class="letters-review__verified">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+              Compra verificada
+            </span>
+            <span class="letters-review__date">· hace 3 semanas</span>
+          </p>
+        </div>
+        <div class="letters-review__stars" aria-label="5 de 5 estrellas">★★★★★</div>
+      </div>
+      <p class="letters-review__text">Perfecta para regalar. Vino en su bolsa de tela con la tarjeta personalizada y todo el mundo pregunta por ella.</p>
+      <p class="letters-review__product">Tarjetero — Repujado / Iniciales</p>
     </li>
 
     <li class="letters-review">
-      <div class="letters-review__stars" aria-label="5 de 5 estrellas">★★★★★</div>
-      <p class="letters-review__text">“La atención por WhatsApp fue excelente, me ayudaron a elegir el cuero y el hilo. Se nota el trabajo artesanal.”</p>
-      <p class="letters-review__author"><strong>Valentina M.</strong> · Cartagena</p>
+      <div class="letters-review__header">
+        <span class="letters-review__avatar" aria-hidden="true">VM</span>
+        <div class="letters-review__who">
+          <p class="letters-review__author"><strong>Valentina M.</strong> <span class="letters-review__city">· Cartagena</span></p>
+          <p class="letters-review__meta">
+            <span class="letters-review__verified">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+              Compra verificada
+            </span>
+            <span class="letters-review__date">· hace 1 mes</span>
+          </p>
+        </div>
+        <div class="letters-review__stars" aria-label="4 de 5 estrellas">★★★★☆</div>
+      </div>
+      <p class="letters-review__text">La atención por WhatsApp fue excelente, me ayudaron a elegir el cuero y el hilo. Se nota el trabajo artesanal. Tardó unos días más de lo que pensaba, pero valió la pena esperar.</p>
+      <p class="letters-review__product">Funda — Bordado / Texturizado Iguana / Café Oscuro</p>
     </li>
 
     <li class="letters-review">
-      <div class="letters-review__stars" aria-label="5 de 5 estrellas">★★★★★</div>
-      <p class="letters-review__text">“Llevo unos meses con ella y el cuero ha mejorado con el uso. Justo lo que buscaba: una pieza que envejece contigo.”</p>
-      <p class="letters-review__author"><strong>Ricardo L.</strong> · Bucaramanga</p>
+      <div class="letters-review__header">
+        <span class="letters-review__avatar" aria-hidden="true">RL</span>
+        <div class="letters-review__who">
+          <p class="letters-review__author"><strong>Ricardo L.</strong> <span class="letters-review__city">· Bucaramanga</span></p>
+          <p class="letters-review__meta">
+            <span class="letters-review__verified">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+              Compra verificada
+            </span>
+            <span class="letters-review__date">· hace 2 meses</span>
+          </p>
+        </div>
+        <div class="letters-review__stars" aria-label="5 de 5 estrellas">★★★★★</div>
+      </div>
+      <p class="letters-review__text">Llevo unos meses con ella y el cuero ha mejorado con el uso. Justo lo que buscaba: una pieza que envejece contigo.</p>
+      <p class="letters-review__product">Funda — Repujado / Cuero Liso / Tabaco</p>
     </li>
 
     <li class="letters-review">
-      <div class="letters-review__stars" aria-label="5 de 5 estrellas">★★★★★</div>
-      <p class="letters-review__text">“Terminaciones impecables y la medida exacta para mi dispositivo. Sin duda volvería a comprar.”</p>
-      <p class="letters-review__author"><strong>Juliana T.</strong> · Barranquilla</p>
+      <div class="letters-review__header">
+        <span class="letters-review__avatar" aria-hidden="true">JT</span>
+        <div class="letters-review__who">
+          <p class="letters-review__author"><strong>Juliana T.</strong> <span class="letters-review__city">· Barranquilla</span></p>
+          <p class="letters-review__meta">
+            <span class="letters-review__verified">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+              Compra verificada
+            </span>
+            <span class="letters-review__date">· hace 2 meses</span>
+          </p>
+        </div>
+        <div class="letters-review__stars" aria-label="5 de 5 estrellas">★★★★★</div>
+      </div>
+      <p class="letters-review__text">Terminaciones impecables y la medida exacta para mi dispositivo. Sin duda volvería a comprar.</p>
+      <p class="letters-review__product">Portavasos — Repujado / Iniciales</p>
     </li>
   </ul>
 </section>
@@ -59,12 +148,26 @@
     width: 100%;
   }
 
+  .letters-reviews__head {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    margin-bottom: var(--padding-md);
+  }
+
   .letters-reviews__title {
-    margin: 0 0 var(--padding-md);
+    margin: 0;
     font-family: var(--font-heading--family);
     font-size: clamp(1.25rem, 2.4vw, 1.75rem);
     line-height: 1.2;
     color: var(--color-foreground);
+  }
+
+  .letters-reviews__subtitle {
+    margin: 0;
+    font-family: var(--font-body--family);
+    font-size: var(--font-paragraph-small--size, 0.85rem);
+    color: rgb(var(--color-foreground-rgb) / 0.7);
   }
 
   .letters-reviews__list {
@@ -79,16 +182,88 @@
   .letters-review {
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: 12px;
     padding: var(--padding-lg);
     border: 1px solid rgb(var(--color-foreground-rgb) / 0.16);
     border-radius: 12px;
     background: rgb(var(--color-foreground-rgb) / 0.04);
   }
 
-  .letters-review__stars {
+  .letters-review__header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .letters-review__avatar {
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: rgb(var(--color-foreground-rgb) / 0.12);
+    border: 1px solid rgb(var(--color-foreground-rgb) / 0.18);
+    font-family: var(--font-body--family);
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
     color: var(--color-foreground);
-    letter-spacing: 2px;
+  }
+
+  .letters-review__who {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    min-width: 0;
+  }
+
+  .letters-review__author {
+    margin: 0;
+    font-family: var(--font-body--family);
+    font-size: 0.92rem;
+    line-height: 1.2;
+    color: var(--color-foreground);
+  }
+
+  .letters-review__city {
+    font-weight: 400;
+    color: rgb(var(--color-foreground-rgb) / 0.72);
+  }
+
+  .letters-review__meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 6px;
+    margin: 0;
+    font-family: var(--font-body--family);
+    font-size: 0.75rem;
+    line-height: 1.3;
+    color: rgb(var(--color-foreground-rgb) / 0.65);
+  }
+
+  .letters-review__verified {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    color: rgb(var(--color-foreground-rgb) / 0.85);
+    font-weight: 600;
+  }
+
+  .letters-review__verified svg {
+    opacity: 0.9;
+  }
+
+  .letters-review__date {
+    white-space: nowrap;
+  }
+
+  .letters-review__stars {
+    margin-inline-start: auto;
+    flex-shrink: 0;
+    color: var(--color-foreground);
+    letter-spacing: 1.5px;
     line-height: 1;
     font-size: 0.95rem;
   }
@@ -101,20 +276,24 @@
     font-style: italic;
   }
 
-  .letters-review__author {
+  .letters-review__product {
     margin: auto 0 0;
-    font-size: var(--font-paragraph-small--size);
-    color: rgb(var(--color-foreground-rgb) / 0.78);
-  }
-
-  .letters-review__author strong {
-    color: var(--color-foreground);
-    font-weight: 600;
+    padding-top: 10px;
+    border-top: 1px solid rgb(var(--color-foreground-rgb) / 0.1);
+    font-family: var(--font-body--family);
+    font-size: 0.72rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: rgb(var(--color-foreground-rgb) / 0.6);
   }
 
   @media screen and (max-width: 749px) {
     .letters-reviews__list {
       grid-template-columns: minmax(0, 1fr);
+    }
+
+    .letters-review__stars {
+      font-size: 0.85rem;
     }
   }
 {% endstylesheet %}

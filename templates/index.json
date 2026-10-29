@@ -9,17 +9,6 @@
  */
 {
   "sections": {
-    "section_MgkEX9": {
-      "type": "custom-liquid",
-      "name": "Hero video (LETTERS)",
-      "settings": {
-        "custom_liquid": "<div class=\"lhv\">\n  {%- comment -%} El video se carga cuando la página ya está interactiva (no compite con el render inicial). {%- endcomment -%}\n  <video class=\"lhv__media\" autoplay muted loop playsinline preload=\"none\" poster=\"{{ 'letters-hero-poster.jpg' | asset_url }}\" data-lazy-video>\n    <source data-src=\"{{ 'letters-hero.webm' | asset_url }}\" type=\"video/webm\">\n    <source data-src=\"{{ 'letters-hero.mp4' | asset_url }}\" type=\"video/mp4\">\n  </video>\n  <script>\n    (function () {\n      var video = document.querySelector('.lhv__media');\n      if (!video) return;\n      if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;\n      var start = function () {\n        var sources = video.querySelectorAll('source[data-src]');\n        for (var i = 0; i < sources.length; i += 1) sources[i].src = sources[i].getAttribute('data-src');\n        video.load();\n        var playing = video.play();\n        if (playing && playing.catch) playing.catch(function () {});\n      };\n      if ('requestIdleCallback' in window) requestIdleCallback(start, { timeout: 2500 });\n      else window.addEventListener('load', function () { setTimeout(start, 400); });\n    })();\n  </script>\n  <div class=\"lhv__overlay\"></div>\n  <div class=\"lhv__content\">\n    <h1 class=\"lhv__title\">Tu historia,<br>escrita en cuero.</h1>\n    <p class=\"lhv__subtitle\">Cuero genuino, hecho a mano en Colombia y personalizado con tus iniciales. Diseñado para envejecer contigo.</p>\n    <a class=\"lhv__cta\" href=\"/products/funda-cuero-genuino\">Personaliza el tuyo</a>\n  </div>\n</div>\n<style>\n  .lhv{position:relative;isolation:isolate;overflow:hidden;display:flex;align-items:center;min-height:min(82vh,760px);background:#000}\n  .lhv__media{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2}\n  .lhv__overlay{position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(0,0,0,.93) 0%,rgba(0,0,0,.8) 42%,rgba(0,0,0,.42) 72%,rgba(0,0,0,.62) 100%)}\n  .lhv__content{width:100%;max-width:1400px;margin:0 auto;padding:clamp(28px,6vw,80px) clamp(16px,5vw,64px)}\n  .lhv__title{margin:0 0 clamp(12px,2vw,20px);max-width:20ch;font-family:var(--font-heading--family);text-transform:uppercase;font-size:clamp(1.75rem,5.4vw,4.6rem);line-height:1.06;letter-spacing:.01em;color:var(--color-foreground)}\n  .lhv__subtitle{margin:0 0 clamp(22px,3vw,34px);max-width:46ch;font-family:var(--font-body--family);font-size:clamp(1rem,1.3vw,1.18rem);line-height:1.65;color:var(--color-foreground);opacity:.92}\n  .lhv__cta{display:inline-block;padding:16px 34px;border-radius:999px;background:var(--color-foreground);color:var(--color-background);font-family:var(--font-body--family);font-weight:600;letter-spacing:.02em;text-decoration:none;transition:transform .25s ease,opacity .25s ease}\n  .lhv__cta:hover{transform:translateY(-2px);opacity:.92}\n  .lhv__cta:focus-visible{outline:2px solid var(--color-foreground);outline-offset:3px}\n  @media (max-width:749px){\n    .lhv{min-height:min(74vh,620px)}\n    .lhv__overlay{background:linear-gradient(180deg,rgba(0,0,0,.88) 0%,rgba(0,0,0,.7) 52%,rgba(0,0,0,.92) 100%)}\n    .lhv__title{max-width:100%}\n  }\n  @media (prefers-reduced-motion:reduce){\n    .lhv__media{display:none}\n    .lhv{background:url('{{ 'letters-hero-poster.jpg' | asset_url }}') center/cover no-repeat}\n  }\n</style>",
-        "background_color": "",
-        "section_width": "full-width",
-        "padding-block-start": 0,
-        "padding-block-end": 0
-      }
-    },
     "section_trust_letters": {
       "type": "custom-liquid",
       "settings": {
@@ -897,14 +886,110 @@
         "padding-block-start": 0,
         "padding-block-end": 0
       }
+    },
+    "section_letters_hero": {
+      "type": "letters-hero-product",
+      "name": "Hero producto (LETTERS)",
+      "settings": {
+        "badge": "Más vendido",
+        "eyebrow": "Capítulo I — Hecho a mano en Colombia",
+        "heading": "Tu historia, escrita en cuero.",
+        "subheading": "<p>Funda de cuero Full Grain, personalizada con tus iniciales y el color de hilo que elijas. Una pieza que envejece contigo.</p>",
+        "product": "funda-cuero-genuino",
+        "image": "shopify://shop_images/IMG-20260328-WA0084.jpg",
+        "image_mobile": "shopify://shop_images/IMG-20260328-WA0100.jpg",
+        "show_price": true,
+        "price_prefix": "Desde",
+        "show_compare_price": true,
+        "price_note": "Envío gratis",
+        "cta_primary_label": "Personalizar mi funda",
+        "cta_primary_link": "",
+        "cta_secondary_label": "Ver Capítulo I",
+        "cta_secondary_link": "shopify://collections/capitulo-i",
+        "shelf_heading": "Completa tu historia",
+        "height": 80,
+        "padding-block-start": 0,
+        "padding-block-end": 0
+      },
+      "blocks": {
+        "trust_1": {
+          "type": "trust_item",
+          "settings": {
+            "text": "Envío gratis a todo el país"
+          },
+          "blocks": {}
+        },
+        "trust_2": {
+          "type": "trust_item",
+          "settings": {
+            "text": "Garantía de 2 años"
+          },
+          "blocks": {}
+        },
+        "trust_3": {
+          "type": "trust_item",
+          "settings": {
+            "text": "Empaque de regalo"
+          },
+          "blocks": {}
+        },
+        "shelf_1": {
+          "type": "shelf_item",
+          "settings": {
+            "product": "tarjetero-cuero-genuino",
+            "label": "Tarjetero"
+          },
+          "blocks": {}
+        },
+        "shelf_2": {
+          "type": "shelf_item",
+          "settings": {
+            "product": "portavasos-cuero-genuino",
+            "label": "Portavasos"
+          },
+          "blocks": {}
+        },
+        "shelf_3": {
+          "type": "shelf_item",
+          "settings": {
+            "product": "collar-cuero-genuino",
+            "label": "Collar"
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "trust_1",
+        "trust_2",
+        "trust_3",
+        "shelf_1",
+        "shelf_2",
+        "shelf_3"
+      ]
+    },
+    "section_letters_craft": {
+      "type": "letters-craft",
+      "name": "El taller (LETTERS)",
+      "settings": {
+        "eyebrow": "El taller",
+        "heading": "Cada pieza pasa por nuestras manos",
+        "text": "<p>Cuero Full Grain cortado, cosido y grabado a mano en Colombia. Cinco días hábiles de trabajo para una pieza hecha a tu medida.</p>",
+        "video_file": "",
+        "poster": "",
+        "text_alignment": "left",
+        "height": 60,
+        "padding-block-start": 0,
+        "padding-block-end": 0
+      }
     }
   },
   "order": [
-    "section_MgkEX9",
+    "section_letters_hero",
     "section_trust_letters",
     "section_reviews_letters",
     "collection_list_Ge6pfb",
     "media_with_content_CwFqjm",
+    "section_letters_craft",
     "product_list_4HyKBg",
     "media_with_content_xUctDh"
   ]

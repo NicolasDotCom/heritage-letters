@@ -1,0 +1,797 @@
+{%- comment -%}
+  Hero de producto LETTERS Colombia.
+
+  Diseñado para conversión: el producto (funda) es el protagonista, con precio,
+  personalización visible, un único CTA principal y una mini estantería de
+  productos para que el visitante vea el catálogo sin salir del primer pantallazo.
+
+  Buenas prácticas aplicadas:
+  - Imagen con art-direction (<picture>) y srcset responsivo.
+  - fetchpriority="high" + loading="eager" solo cuando la sección es la primera
+    (LCP). El resto de imágenes son lazy.
+  - Sin video arriba del pliegue.
+{%- endcomment -%}
+
+{%- liquid
+  assign product = section.settings.product
+
+  assign hero_image = section.settings.image
+  if hero_image == blank and product != blank
+    assign hero_image = product.featured_image
+  endif
+
+  assign hero_image_mobile = section.settings.image_mobile
+
+  assign fetch_priority = 'auto'
+  assign loading_attr = 'lazy'
+  if section.index == 1
+    assign fetch_priority = 'high'
+    assign loading_attr = 'eager'
+  endif
+
+  assign cta_primary_url = section.settings.cta_primary_link
+  if cta_primary_url == blank and product != blank
+    assign cta_primary_url = product.url
+  endif
+
+  assign cta_secondary_url = section.settings.cta_secondary_link
+
+  assign show_price_row = false
+  if section.settings.show_price and product != blank
+    assign show_price_row = true
+  endif
+
+  assign has_shelf = false
+  for block in section.blocks
+    if block.type == 'shelf_item' and block.settings.product != blank
+      assign has_shelf = true
+    endif
+  endfor
+
+  assign desktop_widths = '800, 1200, 1600, 2000, 2400'
+  assign mobile_widths = '416, 600, 800, 1200'
+  assign image_sizes = '(min-width: 750px) 55vw, 100vw'
+-%}
+
+<div
+  class="section-background{% if section.settings.background_color != blank %} color-custom-{{ section.id }}{% endif %}"
+></div>
+
+<section
+  class="lhp section section--full-width{% if section.settings.background_color != blank %} color-custom-{{ section.id }}{% endif %}"
+  data-section-type="letters-hero-product"
+  style="
+    {% render 'spacing-padding', settings: section.settings %}
+    --lhp-height: {{ section.settings.height }}svh;
+  "
+>
+  <div class="lhp__grid">
+    <div class="lhp__content">
+      {%- if section.settings.badge != blank -%}
+        <p class="lhp__badge">
+          <span class="lhp__badge-dot" aria-hidden="true"></span>
+          {{- section.settings.badge -}}
+        </p>
+      {%- endif -%}
+
+      {%- if section.settings.eyebrow != blank -%}
+        <p class="lhp__eyebrow">{{ section.settings.eyebrow }}</p>
+      {%- endif -%}
+
+      {%- if section.settings.heading != blank -%}
+        <h1 class="lhp__heading">{{ section.settings.heading }}</h1>
+      {%- endif -%}
+
+      {%- if section.settings.subheading != blank -%}
+        <div class="lhp__subheading rte">{{ section.settings.subheading }}</div>
+      {%- endif -%}
+
+      {%- if show_price_row -%}
+        <div class="lhp__price">
+          {%- if section.settings.price_prefix != blank -%}
+            <span class="lhp__price-prefix">{{ section.settings.price_prefix }}</span>
+          {%- endif -%}
+          <span class="lhp__price-value">{{ product.price | money }}</span>
+          {%- if section.settings.show_compare_price and product.compare_at_price > product.price -%}
+            <s class="lhp__price-compare">{{ product.compare_at_price | money }}</s>
+          {%- endif -%}
+          {%- if section.settings.price_note != blank -%}
+            <span class="lhp__price-note">{{ section.settings.price_note }}</span>
+          {%- endif -%}
+        </div>
+      {%- endif -%}
+
+      {%- if section.settings.cta_primary_label != blank and cta_primary_url != blank -%}
+        <div class="lhp__actions">
+          <a
+            class="button lhp__cta"
+            href="{{ cta_primary_url }}"
+            data-lhp-cta="primary"
+          >
+            {{- section.settings.cta_primary_label -}}
+          </a>
+          {%- if section.settings.cta_secondary_label != blank and cta_secondary_url != blank -%}
+            <a
+              class="button-secondary lhp__cta"
+              href="{{ cta_secondary_url }}"
+              data-lhp-cta="secondary"
+            >
+              {{- section.settings.cta_secondary_label -}}
+            </a>
+          {%- endif -%}
+        </div>
+      {%- endif -%}
+
+      {%- assign trust_items = section.blocks | where: 'type', 'trust_item' -%}
+      {%- if trust_items.size > 0 -%}
+        <ul class="lhp__trust" role="list">
+          {%- for block in trust_items -%}
+            <li class="lhp__trust-item" {{ block.shopify_attributes }}>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M20 6 9 17l-5-5"/>
+              </svg>
+              <span>{{ block.settings.text }}</span>
+            </li>
+          {%- endfor -%}
+        </ul>
+      {%- endif -%}
+
+      {%- if has_shelf -%}
+        <div class="lhp__shelf-wrap">
+          {%- if section.settings.shelf_heading != blank -%}
+            <p class="lhp__shelf-heading">{{ section.settings.shelf_heading }}</p>
+          {%- endif -%}
+          <ul class="lhp__shelf" role="list">
+            {%- for block in section.blocks -%}
+              {%- if block.type == 'shelf_item' and block.settings.product != blank -%}
+                {%- assign shelf_product = block.settings.product -%}
+                <li class="lhp__shelf-item" {{ block.shopify_attributes }}>
+                  <a
+                    class="lhp__card"
+                    href="{{ shelf_product.url }}"
+                    data-lhp-cta="shelf"
+                    data-lhp-product="{{ shelf_product.handle }}"
+                  >
+                    {%- if shelf_product.featured_image != blank -%}
+                      {{
+                        shelf_product.featured_image
+                        | image_url: width: 200
+                        | image_tag:
+                          width: 112,
+                          height: 112,
+                          loading: 'lazy',
+                          alt: shelf_product.featured_image.alt,
+                          class: 'lhp__card-image'
+                      }}
+                    {%- endif -%}
+                    <span class="lhp__card-info">
+                      <span class="lhp__card-title">
+                        {%- if block.settings.label != blank -%}
+                          {{- block.settings.label -}}
+                        {%- else -%}
+                          {{- shelf_product.title -}}
+                        {%- endif -%}
+                      </span>
+                      <span class="lhp__card-price">{{ shelf_product.price | money }}</span>
+                    </span>
+                    <svg class="lhp__card-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <path d="M5 12h14M13 6l6 6-6 6"/>
+                    </svg>
+                  </a>
+                </li>
+              {%- endif -%}
+            {%- endfor -%}
+          </ul>
+        </div>
+      {%- endif -%}
+    </div>
+
+    <div class="lhp__media">
+      {%- if hero_image != blank -%}
+        {%- if hero_image_mobile != blank -%}
+          <picture class="lhp__picture">
+            <source
+              media="(max-width: 749px)"
+              srcset="
+                {%- assign mobile_widths_array = mobile_widths | split: ', ' -%}
+                {%- for width_value in mobile_widths_array -%}
+                  {{ hero_image_mobile | image_url: width: width_value }} {{ width_value }}w{% unless forloop.last %},{% endunless %}
+                {%- endfor -%}
+              "
+              sizes="100vw"
+            >
+            {{
+              hero_image
+              | image_url: width: 2400
+              | image_tag:
+                widths: desktop_widths,
+                sizes: image_sizes,
+                alt: hero_image.alt,
+                class: 'lhp__image',
+                loading: loading_attr,
+                fetchpriority: fetch_priority
+            }}
+          </picture>
+        {%- else -%}
+          {{
+            hero_image
+            | image_url: width: 2400
+            | image_tag:
+              widths: desktop_widths,
+              sizes: image_sizes,
+              alt: hero_image.alt,
+              class: 'lhp__image',
+              loading: loading_attr,
+              fetchpriority: fetch_priority
+          }}
+        {%- endif -%}
+      {%- else -%}
+        {{ 'product-1' | placeholder_svg_tag: 'lhp__image lhp__image--placeholder' }}
+      {%- endif -%}
+    </div>
+  </div>
+</section>
+
+<script>
+  (function () {
+    var section = document.querySelector('[data-section-type="letters-hero-product"]');
+    if (!section || !window.dataLayer) return;
+    section.addEventListener('click', function (event) {
+      var target = event.target.closest('[data-lhp-cta]');
+      if (!target) return;
+      window.dataLayer.push({
+        event: 'hero_cta_click',
+        hero_cta: target.getAttribute('data-lhp-cta'),
+        hero_product: target.getAttribute('data-lhp-product') || {{ product.handle | default: '' | json }}
+      });
+    });
+  })();
+</script>
+
+{% stylesheet %}
+  .lhp {
+    padding-block: 0;
+    padding-inline: 0;
+  }
+
+  .lhp__grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr);
+    align-items: stretch;
+    min-height: min(var(--lhp-height, 80svh), 860px);
+  }
+
+  .lhp__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: clamp(14px, 1.6vw, 22px);
+    width: 100%;
+    max-width: 720px;
+    margin-inline-start: auto;
+    padding: clamp(36px, 5.5vw, 80px) clamp(20px, 4vw, 64px);
+  }
+
+  .lhp__badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    align-self: flex-start;
+    margin: 0;
+    padding: 6px 12px;
+    border: 1px solid rgb(var(--color-foreground-rgb) / 0.28);
+    border-radius: 999px;
+    font-family: var(--font-body--family);
+    font-size: 0.72rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--color-foreground);
+  }
+
+  .lhp__badge-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: currentColor;
+    opacity: 0.9;
+  }
+
+  .lhp__eyebrow {
+    margin: 0;
+    font-family: var(--font-body--family);
+    font-size: 0.76rem;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--color-foreground);
+    opacity: 0.85;
+  }
+
+  .lhp__heading {
+    margin: 0;
+    font-family: var(--font-heading--family);
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.01em;
+    line-height: 1.05;
+    font-size: clamp(2rem, 4.6vw, 4.4rem);
+    color: var(--color-foreground);
+    text-wrap: balance;
+  }
+
+  .lhp__subheading {
+    margin: 0;
+    max-width: 46ch;
+    font-family: var(--font-body--family);
+    font-size: clamp(1rem, 1.2vw, 1.15rem);
+    line-height: 1.65;
+    color: rgb(var(--color-foreground-rgb) / 0.88);
+  }
+
+  .lhp__subheading p {
+    margin: 0;
+  }
+
+  .lhp__price {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 8px 12px;
+    margin: 2px 0 0;
+    font-family: var(--font-body--family);
+    color: var(--color-foreground);
+  }
+
+  .lhp__price-prefix {
+    font-size: 0.95rem;
+    opacity: 0.85;
+  }
+
+  .lhp__price-value {
+    font-size: clamp(1.35rem, 2.2vw, 1.75rem);
+    font-weight: 600;
+    letter-spacing: 0.01em;
+  }
+
+  .lhp__price-compare {
+    font-size: 1rem;
+    opacity: 0.55;
+  }
+
+  .lhp__price-note {
+    font-size: 0.82rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    opacity: 0.8;
+  }
+
+  .lhp__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-block-start: 6px;
+  }
+
+  .lhp__cta {
+    min-width: 210px;
+    padding-block: 15px;
+    padding-inline: 30px;
+  }
+
+  .lhp__trust {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px 22px;
+    margin: 4px 0 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .lhp__trust-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--font-body--family);
+    font-size: 0.84rem;
+    color: rgb(var(--color-foreground-rgb) / 0.82);
+  }
+
+  .lhp__trust-item svg {
+    flex-shrink: 0;
+    opacity: 0.9;
+  }
+
+  .lhp__shelf-wrap {
+    margin-block-start: 10px;
+  }
+
+  .lhp__shelf-heading {
+    margin: 0 0 10px;
+    font-family: var(--font-body--family);
+    font-size: 0.76rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgb(var(--color-foreground-rgb) / 0.7);
+  }
+
+  .lhp__shelf {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 10px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .lhp__card {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 9px;
+    border: 1px solid rgb(var(--color-foreground-rgb) / 0.18);
+    border-radius: 12px;
+    text-decoration: none;
+    color: var(--color-foreground);
+    background: rgb(var(--color-foreground-rgb) / 0.04);
+    transition: transform 0.25s ease, border-color 0.25s ease, background-color 0.25s ease;
+  }
+
+  .lhp__card:hover {
+    transform: translateY(-2px);
+    border-color: rgb(var(--color-foreground-rgb) / 0.5);
+    background: rgb(var(--color-foreground-rgb) / 0.08);
+  }
+
+  .lhp__card-image {
+    width: 52px;
+    height: 52px;
+    object-fit: cover;
+    border-radius: 8px;
+    flex-shrink: 0;
+  }
+
+  .lhp__card-info {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    min-width: 0;
+  }
+
+  .lhp__card-title {
+    font-family: var(--font-body--family);
+    font-size: 0.82rem;
+    line-height: 1.25;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+  }
+
+  .lhp__card-price {
+    font-family: var(--font-body--family);
+    font-size: 0.78rem;
+    opacity: 0.75;
+  }
+
+  .lhp__card-arrow {
+    margin-inline-start: auto;
+    flex-shrink: 0;
+    opacity: 0.6;
+  }
+
+  .lhp__media {
+    position: relative;
+    overflow: hidden;
+    min-height: 320px;
+  }
+
+  .lhp__picture,
+  .lhp__image {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .lhp__image--placeholder {
+    background: rgb(var(--color-foreground-rgb) / 0.06);
+  }
+
+  /* Funde el borde izquierdo de la imagen con el fondo de la sección */
+  .lhp__media::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: linear-gradient(
+      90deg,
+      rgb(var(--color-background-rgb) / 0.92) 0%,
+      rgb(var(--color-background-rgb) / 0) 32%
+    );
+  }
+
+  @media screen and (max-width: 989px) {
+    .lhp__shelf {
+      grid-template-columns: minmax(0, 1fr);
+    }
+  }
+
+  @media screen and (max-width: 749px) {
+    .lhp__grid {
+      grid-template-columns: minmax(0, 1fr);
+      min-height: 0;
+    }
+
+    .lhp__media {
+      order: -1;
+      height: 44svh;
+      min-height: 260px;
+    }
+
+    .lhp__media::after {
+      background: linear-gradient(
+        180deg,
+        rgb(var(--color-background-rgb) / 0) 55%,
+        rgb(var(--color-background-rgb) / 0.95) 100%
+      );
+    }
+
+    .lhp__content {
+      max-width: none;
+      margin-inline: 0;
+      padding: 20px clamp(16px, 5vw, 28px) 34px;
+      gap: 12px;
+    }
+
+    /* Precio y CTA antes de la descripción: el botón debe verse sin scroll */
+    .lhp__badge { order: 1; }
+    .lhp__eyebrow { order: 2; }
+    .lhp__heading { order: 3; }
+    .lhp__price { order: 4; }
+    .lhp__actions { order: 5; }
+    .lhp__subheading { order: 6; }
+    .lhp__trust { order: 7; }
+    .lhp__shelf-wrap { order: 8; }
+
+    .lhp__heading {
+      font-size: clamp(1.9rem, 8.5vw, 2.6rem);
+    }
+
+    .lhp__actions {
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .lhp__cta {
+      width: 100%;
+      min-width: 0;
+    }
+
+    .lhp__shelf {
+      display: flex;
+      gap: 10px;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      padding-block-end: 6px;
+      margin-inline: calc(-1 * clamp(16px, 5vw, 28px));
+      padding-inline: clamp(16px, 5vw, 28px);
+      scrollbar-width: none;
+    }
+
+    .lhp__shelf::-webkit-scrollbar {
+      display: none;
+    }
+
+    .lhp__shelf-item {
+      flex: 0 0 78%;
+      scroll-snap-align: start;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .lhp__card {
+      transition: none;
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Hero producto (LETTERS)",
+  "tag": "section",
+  "class": "section--letters-hero-product",
+  "settings": [
+    {
+      "type": "text",
+      "id": "badge",
+      "label": "Insignia",
+      "default": "Más vendido",
+      "info": "Déjalo vacío para ocultarla."
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Texto superior (eyebrow)",
+      "default": "Capítulo I — Hecho a mano en Colombia"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Título",
+      "default": "Tu historia, escrita en cuero."
+    },
+    {
+      "type": "richtext",
+      "id": "subheading",
+      "label": "Descripción",
+      "default": "<p>Funda de cuero Full Grain, personalizada con tus iniciales y el color de hilo que elijas. Una pieza que envejece contigo.</p>"
+    },
+    {
+      "type": "product",
+      "id": "product",
+      "label": "Producto protagonista",
+      "info": "Aporta precio, precio comparado e imagen principal."
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Imagen (escritorio)",
+      "info": "Si se deja vacía, se usa la imagen principal del producto."
+    },
+    {
+      "type": "image_picker",
+      "id": "image_mobile",
+      "label": "Imagen (móvil)",
+      "info": "Opcional: imagen vertical para pantallas pequeñas."
+    },
+    {
+      "type": "checkbox",
+      "id": "show_price",
+      "label": "Mostrar precio",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "price_prefix",
+      "label": "Texto antes del precio",
+      "default": "Desde"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_compare_price",
+      "label": "Mostrar precio tachado",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "price_note",
+      "label": "Nota junto al precio",
+      "default": "Envío gratis"
+    },
+    {
+      "type": "text",
+      "id": "cta_primary_label",
+      "label": "Botón principal — texto",
+      "default": "Personalizar mi funda"
+    },
+    {
+      "type": "url",
+      "id": "cta_primary_link",
+      "label": "Botón principal — enlace",
+      "info": "Si se deja vacío, lleva al producto protagonista."
+    },
+    {
+      "type": "text",
+      "id": "cta_secondary_label",
+      "label": "Botón secundario — texto",
+      "default": "Ver Capítulo I"
+    },
+    {
+      "type": "url",
+      "id": "cta_secondary_link",
+      "label": "Botón secundario — enlace",
+      "info": "En la página de inicio: /collections/capitulo-i"
+    },
+    {
+      "type": "text",
+      "id": "shelf_heading",
+      "label": "Título de la mini estantería",
+      "default": "Completa tu historia"
+    },
+    {
+      "type": "range",
+      "id": "height",
+      "label": "Altura del hero",
+      "min": 50,
+      "max": 100,
+      "step": 5,
+      "unit": "svh",
+      "default": 80
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Color de fondo",
+      "placeholder": "Predeterminado"
+    },
+    {
+      "type": "header",
+      "content": "Relleno"
+    },
+    {
+      "type": "range",
+      "id": "padding-block-start",
+      "label": "Superior",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding-block-end",
+      "label": "Inferior",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    }
+  ],
+  "blocks": [
+    {
+      "type": "trust_item",
+      "name": "Dato de confianza",
+      "settings": [
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Texto",
+          "default": "Envío gratis a todo el país"
+        }
+      ]
+    },
+    {
+      "type": "shelf_item",
+      "name": "Producto de la estantería",
+      "settings": [
+        {
+          "type": "product",
+          "id": "product",
+          "label": "Producto"
+        },
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Nombre alternativo",
+          "info": "Opcional: sobrescribe el título del producto."
+        }
+      ]
+    }
+  ],
+  "max_blocks": 10,
+  "presets": [
+    {
+      "name": "Hero producto (LETTERS)",
+      "category": "t:categories.layout",
+      "blocks": {
+        "trust_1": {
+          "type": "trust_item",
+          "settings": { "text": "Envío gratis a todo el país" }
+        },
+        "trust_2": {
+          "type": "trust_item",
+          "settings": { "text": "Garantía de 2 años" }
+        },
+        "trust_3": {
+          "type": "trust_item",
+          "settings": { "text": "Empaque de regalo" }
+        }
+      },
+      "block_order": ["trust_1", "trust_2", "trust_3"]
+    }
+  ]
+}
+{% endschema %}

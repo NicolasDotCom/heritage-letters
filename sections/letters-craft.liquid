@@ -1,0 +1,310 @@
+{%- comment -%}
+  Banda de video "El taller" LETTERS Colombia.
+
+  Muestra el proceso artesanal FUERA del primer pantallazo: el hero vende el
+  producto, esta sección cuenta la historia y construye confianza.
+
+  Rendimiento:
+  - El video NO compite con el render inicial: las fuentes llevan data-src y se
+    activan con requestIdleCallback (o al cargar la página como fallback).
+  - El poster es la imagen que se ve mientras tanto.
+  - Con prefers-reduced-motion se muestra solo el poster.
+{%- endcomment -%}
+
+{%- liquid
+  assign video_file = section.settings.video_file
+  assign poster = section.settings.poster
+
+  if video_file != blank and video_file.preview_image != blank and poster == blank
+    assign poster = video_file.preview_image
+  endif
+
+  if poster == blank
+    assign poster_url = 'letters-hero-poster.jpg' | asset_url
+  else
+    assign poster_url = poster | image_url: width: 1600
+  endif
+-%}
+
+<div
+  class="section-background{% if section.settings.background_color != blank %} color-custom-{{ section.id }}{% endif %}"
+></div>
+
+<section
+  class="lhc section section--full-width{% if section.settings.background_color != blank %} color-custom-{{ section.id }}{% endif %}"
+  data-section-type="letters-craft"
+  style="
+    {% render 'spacing-padding', settings: section.settings %}
+    --lhc-height: {{ section.settings.height }}svh;
+  "
+>
+  <div class="lhc__inner">
+    <video
+      class="lhc__media"
+      autoplay
+      muted
+      loop
+      playsinline
+      preload="none"
+      poster="{{ poster_url }}"
+      data-lazy-video
+    >
+      {%- if video_file != blank -%}
+        {%- for source in video_file.sources -%}
+          <source data-src="{{ source.url }}" type="{{ source.mime_type }}">
+        {%- endfor -%}
+      {%- else -%}
+        <source data-src="{{ 'letters-hero.webm' | asset_url }}" type="video/webm">
+        <source data-src="{{ 'letters-hero.mp4' | asset_url }}" type="video/mp4">
+      {%- endif -%}
+    </video>
+
+    <div class="lhc__overlay"></div>
+
+    <div class="lhc__content lhc__content--{{ section.settings.text_alignment }}">
+      {%- if section.settings.eyebrow != blank -%}
+        <p class="lhc__eyebrow">{{ section.settings.eyebrow }}</p>
+      {%- endif -%}
+      {%- if section.settings.heading != blank -%}
+        <h2 class="lhc__heading">{{ section.settings.heading }}</h2>
+      {%- endif -%}
+      {%- if section.settings.text != blank -%}
+        <div class="lhc__text rte">{{ section.settings.text }}</div>
+      {%- endif -%}
+    </div>
+  </div>
+</section>
+
+<script>
+  (function () {
+    var section = document.querySelector('[data-section-type="letters-craft"]');
+    if (!section) return;
+    var video = section.querySelector('[data-lazy-video]');
+    if (!video) return;
+    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+    var start = function () {
+      var sources = video.querySelectorAll('source[data-src]');
+      for (var i = 0; i < sources.length; i += 1) {
+        sources[i].src = sources[i].getAttribute('data-src');
+        sources[i].removeAttribute('data-src');
+      }
+      video.load();
+      var playing = video.play();
+      if (playing && playing.catch) playing.catch(function () {});
+    };
+
+    if ('requestIdleCallback' in window) {
+      requestIdleCallback(start, { timeout: 2500 });
+    } else {
+      window.addEventListener('load', function () {
+        setTimeout(start, 400);
+      });
+    }
+  })();
+</script>
+
+{% stylesheet %}
+  .lhc {
+    padding-block: 0;
+    padding-inline: 0;
+  }
+
+  .lhc__inner {
+    position: relative;
+    display: flex;
+    align-items: center;
+    min-height: min(var(--lhc-height, 60svh), 720px);
+    overflow: hidden;
+    background: rgb(var(--color-background-rgb) / 1);
+  }
+
+  .lhc__media {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+  }
+
+  .lhc__overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background: linear-gradient(
+      90deg,
+      rgb(var(--color-background-rgb) / 0.9) 0%,
+      rgb(var(--color-background-rgb) / 0.72) 45%,
+      rgb(var(--color-background-rgb) / 0.35) 100%
+    );
+  }
+
+  .lhc__content {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: 1400px;
+    margin-inline: auto;
+    padding: clamp(28px, 5vw, 72px) clamp(20px, 5vw, 64px);
+  }
+
+  .lhc__content--center {
+    text-align: center;
+  }
+
+  .lhc__content--center .lhc__text {
+    margin-inline: auto;
+  }
+
+  .lhc__eyebrow {
+    margin: 0 0 12px;
+    font-family: var(--font-body--family);
+    font-size: 0.76rem;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--color-foreground);
+    opacity: 0.85;
+  }
+
+  .lhc__heading {
+    margin: 0 0 14px;
+    max-width: 22ch;
+    font-family: var(--font-heading--family);
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.01em;
+    line-height: 1.1;
+    font-size: clamp(1.55rem, 3.4vw, 2.9rem);
+    color: var(--color-foreground);
+    text-wrap: balance;
+  }
+
+  .lhc__content--center .lhc__heading {
+    margin-inline: auto;
+  }
+
+  .lhc__text {
+    max-width: 52ch;
+    font-family: var(--font-body--family);
+    font-size: clamp(0.98rem, 1.1vw, 1.12rem);
+    line-height: 1.7;
+    color: rgb(var(--color-foreground-rgb) / 0.88);
+  }
+
+  .lhc__text p {
+    margin: 0;
+  }
+
+  @media screen and (max-width: 749px) {
+    .lhc__overlay {
+      background: linear-gradient(
+        180deg,
+        rgb(var(--color-background-rgb) / 0.55) 0%,
+        rgb(var(--color-background-rgb) / 0.85) 100%
+      );
+    }
+
+    .lhc__content {
+      align-self: flex-end;
+      padding-bottom: clamp(28px, 8vw, 48px);
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "El taller (LETTERS)",
+  "tag": "section",
+  "class": "section--letters-craft",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Texto superior (eyebrow)",
+      "default": "El taller"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Título",
+      "default": "Cada pieza pasa por nuestras manos"
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "Texto",
+      "default": "<p>Cuero Full Grain cortado, cosido y grabado a mano en Colombia. Cinco días hábiles de trabajo para una pieza hecha a tu medida.</p>"
+    },
+    {
+      "type": "video",
+      "id": "video_file",
+      "label": "Video (opcional)",
+      "info": "Si se deja vacío, se usa el video del taller incluido en el tema. Recomendado: 6–10 segundos, sin audio."
+    },
+    {
+      "type": "image_picker",
+      "id": "poster",
+      "label": "Imagen de fondo (opcional)",
+      "info": "Se muestra mientras carga el video y con movimiento reducido. Si se deja vacía, se usa el póster del tema."
+    },
+    {
+      "type": "select",
+      "id": "text_alignment",
+      "label": "Alineación del texto",
+      "options": [
+        { "value": "left", "label": "Izquierda" },
+        { "value": "center", "label": "Centrado" }
+      ],
+      "default": "left"
+    },
+    {
+      "type": "range",
+      "id": "height",
+      "label": "Altura",
+      "min": 40,
+      "max": 100,
+      "step": 5,
+      "unit": "svh",
+      "default": 60
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Color de fondo",
+      "placeholder": "Predeterminado"
+    },
+    {
+      "type": "header",
+      "content": "Relleno"
+    },
+    {
+      "type": "range",
+      "id": "padding-block-start",
+      "label": "Superior",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding-block-end",
+      "label": "Inferior",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    }
+  ],
+  "presets": [
+    {
+      "name": "El taller (LETTERS)",
+      "category": "t:categories.layout"
+    }
+  ]
+}
+{% endschema %}
